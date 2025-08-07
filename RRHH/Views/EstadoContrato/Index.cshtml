@@ -1,0 +1,250 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+@*                **************************************       Estado contratos       **************************************                *@
+
+
+
+<link href="global_assets/css/icons/fontawesome/styles.min.css" rel="stylesheet" type="text/css">
+<script src="global_assets/js/demo_pages/form_floating_labels.js"></script>
+
+<div class="dataTables_wrapper no-footer">
+    <div class="card datatable-scroll-wrap">
+
+        <div class="card-header pb-0 d-flex justify-content-between">
+            <h2>Estado de contratos</h2>
+        </div>
+
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-4">
+                    <span>Estado de contratos</span>
+                    <div class="input-group">
+                        <select class="form-control input-borde" name="txt_estado" id="txt_estado" required>
+                            <option value=''>-- Seleccione --</option>
+                            <option value='1'>Vigentes</option>
+                            <option value='2'>Finiquitados</option>
+                            <option value='3'>Falta firma empresa</option>
+                            <option value='4'>Falta firma trabajador</option>
+                            <option value='5'>Rechazados</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3" style="text-align:left">
+                    <input id="busca" type="button" value="Buscar" class="btn btn-primary bg-indigo-800 rounded-round btn-sm m-2" onclick="inicio()" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12" align="center">
+                    <img id="esperar" src="global_assets/images/loading-gif.gif" style="height:30px;width:30px;" />
+                </div>
+
+            </div>
+
+            <div id="list_estados"></div>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+
+@****@
+
+<div id="modal_Estados" class="modal fade" tabindex="-1" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-header bg-dark pb-0">
+                <h2><label id="txt_Cabecera" class="text-light">Contratos</label></h2><label id="txt_id" class="cls_t text-indigo"></label>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="row">
+                    <div class="form-group form-group-float col-md-3" id="camporut">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">RUT</label>
+                        <div class="form-control-feedback form-control-feedback-start mb-3">
+                            <input type="text" id="txt_rut" class="form-control cls_t"  readonly>
+                            <div class="form-control-feedback-icon">
+                                <i class="ph-identification-card"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group form-group-float col-md-5">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Nombres</label>
+                        <div class="form-control-feedback form-control-feedback-start mb-3">
+                            <input type="text" id="txt_nombres" class="form-control cls_t" readonly>
+                            <div class="form-control-feedback-icon">
+                                <i class="ph-dots-nine"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group form-group-float col-md-4">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Apellidos</label>
+                        <div class="form-control-feedback form-control-feedback-start mb-3">
+                            <input type="text" id="txt_apellidos" class="form-control cls_t"  readonly>
+                            <div class="form-control-feedback-icon">
+                                <i class="ph-dots-nine"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group form-group-float col-md-3">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Tipo contrato</label>
+                        <div class="form-control-feedback form-control-feedback-start mb-3">
+                            <input type="text" id="txt_tipocontrato" class="form-control cls_t" readonly>
+                            <div class="form-control-feedback-icon">
+                                <i class="ph-dots-nine"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group form-group-float col-md-3">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Contrato</label>
+                        <div class="form-control-feedback form-control-feedback-start mb-3">
+                            <input type="text" id="txt_contrato" class="form-control" readonly>
+                            <div class="form-control-feedback-icon">
+                                <i class="ph-file-doc"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group form-group-float col-md-3">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Inicio</label>
+                        <div class="form-control-feedback form-control-feedback-start mb-3">
+                            <input type="date" id="txt_inicio" class="form-control" readonly>
+                            <div class="form-control-feedback-icon">
+                                <i class="ph-calendar"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group form-group-float col-md-3">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Termino</label>
+                        <div class="form-control-feedback form-control-feedback-start mb-3">
+                            <input type="date" id="txt_termino" class="form-control" readonly>
+                            <div class="form-control-feedback-icon">
+                                <i class="ph-calendar"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group form-group-float col-md-3">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Faena</label>
+                        <div class="form-control-feedback form-control-feedback-start mb-3">
+                            <input type="text" id="txt_faena" class="form-control cls_t" readonly>
+                            <div class="form-control-feedback-icon">
+                                <i class="ph-dots-nine"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group form-group-float col-md-3">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Cargo</label>
+                        <div class="form-control-feedback form-control-feedback-start mb-3">
+                            <input type="text" id="txt_cargo" class="form-control cls_t" readonly>
+                            <div class="form-control-feedback-icon">
+                                <i class="ph-dots-nine"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group form-group-float col-md-3">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Centro</label>
+                        <div class="form-control-feedback form-control-feedback-start mb-3">
+                            <input type="text" id="txt_centro" class="form-control cls_t" readonly>
+                            <div class="form-control-feedback-icon">
+                                <i class="ph-dots-nine"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group form-group-float col-md-3">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Jornada</label>
+                        <div class="form-control-feedback form-control-feedback-start mb-3">
+                            <input type="text" id="txt_jornada" class="form-control cls_t" readonly>
+                            <div class="form-control-feedback-icon">
+                                <i class="ph-dots-nine"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group form-group-float col-md-4">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Sueldo base</label>
+                        <div class="form-control-feedback form-control-feedback-start mb-3">
+                            <input type="text" id="txt_sueldo" class="form-control" readonly>
+                            <div class="form-control-feedback-icon">
+                                <i class="ph-money"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <span>Tipo carga</span>
+                        <div class="input-group">
+                            <select class="form-control input-borde" name="txt_sexo" id="txt_tipocarga" readonly>
+                                <option value=''>-- Seleccione --</option>
+                                <option value='A'>Tramo A</option>
+                                <option value='B'>Tramo B</option>
+                                <option value='C'>Tramo C</option>
+                                <option value='D'>Tramo D</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <span>Articulo22</span>
+                        <div class="input-group">
+                            <select class="form-control input-borde" name="txt_sexo" id="txt_articulo22" readonly>
+                                <option value=''>-- Seleccione --</option>
+                                <option value='N'>Sin articulo 22</option>
+                                <option value='S'>Con articulo 22</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group form-group-float col-md-8">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Observacion</label>
+                        <div class="form-control-feedback form-control-feedback-start mb-3">
+                            <input type="text" id="txt_observacion" class="form-control" placeholder="Observaciones" readonly>
+                            <div class="form-control-feedback-icon">
+                                <i class="ph-file-doc"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div id="divErrores" style="font-weight:bold;color:red"></div>
+                </div>
+
+            </div>
+
+            <div class="modal-footer" style="text-align:right">
+                <button type="button" id="btnCerrar" class="btn btn-light legitRipple float-end" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+@section Scripts{
+    <script src="~/scripts/formatorut.js"></script>
+    <script src="~/scripts/EstadoContrato.js"></script>
+}

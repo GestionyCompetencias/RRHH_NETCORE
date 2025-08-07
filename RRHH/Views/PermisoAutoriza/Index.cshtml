@@ -1,0 +1,82 @@
+﻿@*
+    CONSULTA PERMISOS
+*@
+@{
+}
+
+
+<link href="global_assets/css/icons/fontawesome/styles.min.css" rel="stylesheet" type="text/css">
+<script src="global_assets/js/demo_pages/form_floating_labels.js"></script>
+
+<script src="global_assets/js/plugins/tables/datatables/extensions/col_reorder.min.js"></script>
+<script src="global_assets/js/demo_pages/datatables_extension_reorder.js"></script>
+
+<script src="global_assets/js/plugins/tables/datatables/extensions/fixed_header.min.js"></script>
+<script src="global_assets/js/demo_pages/datatables_extension_fixed_header.js"></script>
+<script src="global_assets/js/plugins/tables/datatables/extensions/buttons.min.js"></script>
+<script src="global_assets/js/demo_pages/datatables_extension_colvis.js"></script>
+
+
+<div class="dataTables_wrapper no-footer">
+    <div class="card datatable-scroll-wrap">
+
+        <div class="card-header pb-0 d-flex justify-content-between">
+            <h2><i class="counter-icon"></i>Autoriza permisos</h2>
+        </div>
+
+        <div class="card-body">
+            <h4>Filtrar por:</h4>
+            <form id="form-filter">
+                <div class="form-group form-group-floating row">
+                    <div class="form-group form-group-float col-md-3">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Fecha desde</label>
+                        <div class="form-control-feedback form-control-feedback-start mb-3">
+                            <input type="date" id="txt_desde" class="form-control cls_t Obl_t" placeholder="fecha desde" name="fecha desde" required>
+                            <div class="form-control-feedback-icon">
+                                <i class="ph-calendar"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group form-group-float col-md-3">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Fecha hasta</label>
+                        <div class="form-control-feedback form-control-feedback-start mb-3">
+                            <input type="date" id="txt_hasta" class="form-control cls_t Obl_t" placeholder="fecha hasta" name="fecha hasta" required>
+                            <div class="form-control-feedback-icon">
+                                <i class="ph-calendar"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3" style="text-align:left">
+                        <input id="busca" type="button" value="Buscar" class="btn btn-primary bg-indigo-800 rounded-round btn-sm m-2" onclick="inicio()" />
+                    </div>
+                    <div class="col-md-3" style="text-align:right">
+                        <input id="procesa" type="button" value="Procesar" class="btn btn-primary bg-indigo-800 rounded-round btn-sm m-2" onclick="Procesar()" />
+                    </div>
+                </div>
+            </form>
+
+            <div class="row">
+                <div class="col-md-12" align="center" id="esperar" style="display: none">
+                    <img src="global_assets/images/loading-gif.gif" style="height:30px;width:30px;" />
+                    <p>Cargando información, por favor espere un momento...</p>
+                </div>
+            </div>
+
+            <div id="list_autorizapermisos" class="mt-2">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="zona_imprimir" style="display: none">
+    <!--<h3 style="text-align: center; border-bottom: 1px solid #c3c3c3" id="title-impresion"></h3>-->
+    <div id="content-impresion">
+    </div>
+</div>
+
+@section Scripts {
+        <script src="~/Scripts/PermisoAutoriza.js"></script>
+}

@@ -1,0 +1,168 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+@*                **************************************       Empresas       **************************************                *@
+
+
+<link href="global_assets/css/icons/fontawesome/styles.min.css" rel="stylesheet" type="text/css">
+<script src="global_assets/js/demo_pages/form_floating_labels.js"></script>
+
+<div class="dataTables_wrapper no-footer">
+    <div class="card datatable-scroll-wrap">
+
+        <div class="card-header pb-0 d-flex justify-content-between">
+            <h2>Empresas</h2>
+            <button type="button" class="btn bg-indigo-800 rounded-round" data-toggle="modal" data-target="#modal_Empresas" onclick="limpiar()"> Nueva Empresa</button>
+        </div>
+
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12" align="center">
+                    <img id="esperar" src="global_assets/images/loading-gif.gif" style="height:30px;width:30px;" />
+                </div>
+
+            </div>
+
+            <div id="list_empresas"></div>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+
+@****@
+
+<div id="modal_Empresas" class="modal fade" tabindex="-1" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-header bg-indigo pb-0">
+                <h2><label id="txt_Cabecera">Empresa</label></h2><label id="txt_id" class="cls_t text-indigo"></label>
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-group form-group-float col-md-4">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">RUT</label>
+                        <input type="text" id="txt_rut" class="form-control m-0 p-0 cls_t" placeholder="RUT*" required>
+                    </div>
+                    <div class="form-group form-group-float col-md-8">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Razón Social</label>
+                        <input type="text" id="txt_razon" class="form-control m-0 p-0 cls_t" placeholder="Nombre*">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group form-group-float col-md-6">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Nombre Fantasia</label>
+                        <input type="text" id="txt_fantasia" class="form-control m-0 p-0 cls_t" placeholder="Nombre Fantasia*">
+                    </div>
+                    <div class="form-group form-group-float col-md-6">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Giro</label>
+                        <input type="text" id="txt_giro" class="form-control m-0 p-0 cls_t" placeholder="Giro*">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group form-group-float col-md-12">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Dirección</label>
+                        <input type="text" id="txt_direccion" class="form-control m-0 p-0 cls_t" placeholder="Dirección*">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group form-group-float col-md-4">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">País</label>
+                        <select id="cbo_pais" onchange="mostrarRegiones()" class="form-control m-0 p-0 cls_t Obl_t"></select>
+                    </div>
+                    <div class="form-group form-group-float col-md-4">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Regicón</label>
+                        <select id="cbo_region" onchange="mostrarComunas()" class="form-control m-0 p-0 cls_t Obl_t"></select>
+                    </div>
+                    <div class="form-group form-group-float col-md-4">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Comuna</label>
+                        <select id="cbo_comuna" class="form-control m-0 p-0 cls_t Obl_t"></select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group form-group-float col-md-2">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Rut Repre</label>
+                        <input type="text" id="txt_rut_repre" class="form-control m-0 p-0 cls_t" placeholder="Rut Repre*">
+                    </div>
+                    <div class="form-group form-group-float col-md-5">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Nombre Repre</label>
+                        <input type="text" id="txt_nombre_repre" class="form-control m-0 p-0 cls_t" placeholder="Nombre Repre*">
+                    </div>
+                    <div class="form-group form-group-float col-md-5">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Apellido Repre</label>
+                        <input type="text" id="txt_ape_repre" class="form-control m-0 p-0 cls_t" placeholder="Apellido Repre*">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group form-group-float col-md-2">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Rut Encargado</label>
+                        <input type="text" id="txt_rut_encar" class="form-control m-0 p-0 cls_t" placeholder="Rut Encargado*">
+                    </div>
+                    <div class="form-group form-group-float col-md-5">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Nombre Encargado</label>
+                        <input type="text" id="txt_nombre_encar" class="form-control m-0 p-0 cls_t" placeholder="Nombre Encargado*">
+                    </div>
+                    <div class="form-group form-group-float col-md-5">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Apellido Encargado</label>
+                        <input type="text" id="txt_ape_encar" class="form-control m-0 p-0 cls_t" placeholder="Apellido Encargado*">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group form-group-float col-md-6">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Email Repre</label>
+                        <input type="text" id="txt_mail_repre" class="form-control m-0 p-0 cls_t" placeholder="Email Repre*">
+                    </div>
+                    <div class="form-group form-group-float col-md-6">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Email Encargado</label>
+                        <input type="text" id="txt_mail_encar" class="form-control m-0 p-0 cls_t" placeholder="Email Encargado*">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group form-group-float col-md-6">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Email Empresa</label>
+                        <input type="text" id="txt_mail_empre" class="form-control m-0 p-0 cls_t" placeholder="Email Empresa*">
+                    </div>
+                    <div class="form-group form-group-float col-md-6">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Observaciones</label>
+                        <input type="text" id="txt_obs" class="form-control m-0 p-0 cls_t" placeholder="Observaciones*">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="modal-footer" style="text-align:right">
+                <button type="button" id="btnCerrar" class="btn btn-link legitRipple" data-dismiss="modal">Cerrar</button>
+                <input type="button" value="Guardar" class="btn btn-primary" onclick="Guarda()" />
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+@section Scripts{
+
+    <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="~/scripts/empresas.js"></script>
+
+}

@@ -1,0 +1,22 @@
+{
+  "Title": "Administrador",
+  "Modules": [
+    {
+      "Title": "ContabilidadBasica",
+      "SubModules": [
+        {
+          "Title": "Comprobantes",
+          "Features": [
+            {
+              "Title": "Ingreso",
+              "AccessList": {
+                "READ": "1",
+                "CREATE": "1"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

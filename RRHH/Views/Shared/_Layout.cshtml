@@ -1,0 +1,503 @@
+﻿@inject IHttpContextAccessor contxt;
+@using RRHH.Models.Estructuras.Template.Componentes;
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/jpg" href="global_assets/images/LogoL.ico" />
+    <title>GycSol - Recursos humanos</title>
+
+    <!-- Global stylesheets -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+    <link href="~/global_assets/css/icons/icomoon/styles.min.css" rel="stylesheet" type="text/css">
+
+    <!-- GYC -->
+    <script src="~/Scripts/Builders/ComponentBuilder.js"></script>
+    <script src="~/Scripts/Builders/Mappers.js"></script>
+
+    <!-- Core JS files -->
+    <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="~/global_assets/js/plugins/notifications/noty.min.js"></script>
+    <script src="~/global_assets/js/demo_pages/extra_jgrowl_noty.js"></script>
+
+    <!-- Limitless 5 Updated Files -->
+    <link href="~/assets/limitless_5/fonts/inter/inter.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/limitless_5/icons/phosphor/styles.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/limitless_5/css/all.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/limitless_5/css/components/select2.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/limitless_5/css/components/select2-bootstrap-5-theme.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/limitless_5/css/components/datatables.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/components/gyc_components.css" rel="stylesheet" type="text/css">
+    <script src="~/assets/limitless_5/js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="~/assets/limitless_5/js/vendor/visualization/d3/d3.min.js"></script>
+    <script src="~/assets/limitless_5/js/vendor/visualization/d3/d3_tooltip.js"></script>
+    <script src="~/assets/limitless_5/js/vendor/tables/datatables/datatables.min.js"></script>
+    <script src="~/assets/limitless_5/js/vendor/forms/selects/select2.min.js"></script>
+    <script src="~/assets/limitless_5/js/app.js"></script>
+
+    <!-- Soporte Técnico Jira Service Management -->
+    <script data-jsd-embedded data-key="ae5e0afd-9219-4662-897e-dd0a82e23ac8" data-base-url="https://jsd-widget.atlassian.com" src="https://jsd-widget.atlassian.com/assets/embed.js"></script>
+</head>
+
+<body>
+    <!-- Main navbar -->
+    <div class="navbar navbar-dark navbar-expand-lg navbar-static border-bottom border-bottom-white border-opacity-10">
+        <div class="container-fluid">
+            <div class="d-flex d-lg-none me-2">
+                <button type="button" class="navbar-toggler sidebar-mobile-main-toggle rounded-pill">
+                    <i class="ph-list"></i>
+                </button>
+            </div>
+
+@*             JAIME
+ *@
+            <div class="navbar-brand flex-1 flex-lg-0">
+                <a href="index.html" class="d-inline-flex align-items-center">
+@*                     <img src="~/assets/gyc/images/LogoDraft.svg" alt="">
+                    <img src="../../../assets/images/logo_text_light.svg" class="d-none d-sm-inline-block h-16px ms-3" alt="">
+ *@                </a>
+            </div>
+
+            <ul class="nav flex-row">
+                <li class="nav-item d-lg-none">
+                    <a href="#navbar_search" class="navbar-nav-link navbar-nav-link-icon rounded-pill" data-bs-toggle="collapse">
+                        <i class="ph-magnifying-glass"></i>
+                    </a>
+                </li>
+
+
+            </ul>
+
+            <ul class="nav flex-row justify-content-end order-1 order-lg-2">
+                <li class="nav-item nav-item-dropdown-lg dropdown">
+                    <a href="#" class="navbar-nav-link navbar-nav-link-icon rounded-pill" data-bs-toggle="dropdown">
+                        <i class="ph-squares-four"></i>
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-scrollable-sm dropdown-menu-end wmin-lg-600 p-0">
+                        <div class="d-flex align-items-center border-bottom p-3">
+                            <h6 class="mb-0">Aplicaciones GYC</h6>
+                            <a href="#" class="ms-auto">
+                                Más Aplicaciones
+                                <i class="ph-arrow-circle-right ms-1"></i>
+                            </a>
+                        </div>
+
+                        <div class="row row-cols-1 row-cols-sm-2 g-0">
+                            <div class="col">
+                                <button type="button" class="dropdown-item text-wrap h-100 align-items-start border-end-sm border-bottom p-3">
+                                    <div>
+                                        <img src="~/assets/gyc/images/binder-icon.svg" class="h-40px mb-2" alt="">
+                                        <div class="fw-semibold my-1">Contabilidad</div>
+                                        <div class="text-muted">Aprenda a utilizar el módulo de contabilidad Gycsol</div>
+                                    </div>
+                                </button>
+                            </div>
+
+                            <div class="col">
+                                <button type="button" class="dropdown-item text-wrap h-100 align-items-start border-bottom p-3">
+                                    <div>
+                                        <img src="~/assets/gyc/images/boy-with-cap-icon.svg" class="h-40px mb-2" alt="">
+                                        <div class="fw-semibold my-1">Remuneraciones</div>
+                                        <div class="text-muted">Descubra nuestra aplicación de remuneraciones</div>
+                                    </div>
+                                </button>
+                            </div>
+
+                            <div class="col">
+                                <button type="button" class="dropdown-item text-wrap h-100 align-items-start border-end-sm border-bottom border-bottom-sm-0 rounded-bottom-start p-3">
+                                    <div>
+                                        <img src="~/assets/gyc/images/money-notes-receiving-dollar-color-icon.svg" class="h-40px mb-2" alt="">
+                                        <div class="fw-semibold my-1">Facturación</div>
+                                        <div class="text-muted">Gestione su suscripción a nuestros servicios</div>
+                                    </div>
+                                </button>
+                            </div>
+
+                            <div class="col">
+                                <button type="button" class="dropdown-item text-wrap h-100 align-items-start rounded-bottom-end p-3">
+                                    <div>
+                                        <img src="~/assets/gyc/images/helpdesk-icon.svg" class="h-40px mb-2" alt="">
+                                        <div class="fw-semibold my-1">Soporte</div>
+                                        <div class="text-muted">Comuníquese con nosotros si necesita ayuda</div>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item ms-lg-2">
+                    <a href="#" class="navbar-nav-link navbar-nav-link-icon rounded-pill" data-bs-toggle="offcanvas" data-bs-target="#notifications">
+                        <i class="ph-bell"></i>
+                        <span class="badge bg-yellow text-black position-absolute top-0 end-0 translate-middle-top zindex-1 rounded-pill mt-1 me-1">2</span>
+                    </a>
+                </li>
+
+                <li class="nav-item nav-item-dropdown-lg dropdown ms-lg-2">
+                    <a href="#" class="navbar-nav-link align-items-center rounded-pill p-1" data-bs-toggle="dropdown">
+                        <div class="status-indicator-container">
+                            <img src="~/global_assets/images/image.png" class="w-32px h-32px rounded-pill" alt="">
+                            <span class="status-indicator bg-success"></span>
+                        </div>
+                        <span class="d-none d-lg-inline-block mx-lg-2">@contxt.HttpContext.Session.GetString("UserNameLog")</span>
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-end">
+                        <a href="#" class="dropdown-item"><i class="icon-user-plus me-2"></i> Mi Perfil</a>
+                        <a href="#" class="dropdown-item"><i class="icon-comment-discussion me-2"></i> Ayuda / Soporte <span class="badge badge-pill bg-blue ml-auto">58</span></a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item" data-toggle="modal" data-target="#modalSeleccionEmpresa"><i class="icon-cloud me-2"></i> Cambiar de Empresa</a>
+                        <a href="#" class="dropdown-item"><i class="icon-cog5 me-2"></i> Configuración de Usuario</a>
+                        <a href="~/Login/CerrarSesion" class="dropdown-item"><i class="icon-switch2 me-2"></i> Cerrar Sesión</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- /main navbar -->
+    <!-- Page content -->
+    <div class="page-content">
+
+        <!-- Main sidebar -->
+        <div class="sidebar sidebar-dark sidebar-main sidebar-expand-lg">
+
+            <!-- Sidebar content -->
+            <div class="sidebar-content">
+
+                <!-- Sidebar header -->
+                <div class="sidebar-section">
+                    <div class="sidebar-section-body d-flex justify-content-center">
+                        <h5 class="sidebar-resize-hide flex-grow-1 my-auto">Navegación</h5>
+                        <div>
+                            <button type="button" class="btn btn-flat-white btn-icon btn-sm rounded-pill border-transparent sidebar-control sidebar-main-resize d-none d-lg-inline-flex">
+                                <i class="ph-arrows-left-right"></i>
+                            </button>
+
+                            <button type="button" class="btn btn-flat-white btn-icon btn-sm rounded-pill border-transparent sidebar-mobile-main-toggle d-lg-none">
+                                <i class="ph-x"></i>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- /sidebar header -->
+                <!-- Main navigation -->
+                <div class="sidebar-section">
+                    <ul class="nav nav-sidebar" data-nav-type="accordion">
+
+                        <!-- Main Inicio -->
+
+                        <li class="nav-item-header pt-0">
+                            <div class="text-uppercase fs-sm lh-sm opacity-50 sidebar-resize-hide">Recursos humanos</div>
+                            <i class="ph-dots-three sidebar-resize-show"></i>
+                        </li>
+                            <!-- Main Recursos humanos-->
+
+@*                       Personal
+ *@
+                        <li class="nav-item nav-item-submenu ">
+                                <a href="#" class="nav-link"><i class="icon-book3"></i> <span>Personal</span></a>
+                            <ul class="nav-group-sub collapse" data-submenu-title="Personal">
+                          <li class="nav-item nav-item-submenu ">
+                            <a href="#" class="nav-link"><i class="icon-quill2"></i> <span>Empresa</span></a>
+
+                            <ul class="nav-group-sub collapse" data-submenu-title="Empresa">
+                                        <li class="nav-item"><a href="~/Faenas" class="nav-link">Faenas</a></li>
+                                        <li class="nav-item"><a href="~/Cargos" class="nav-link">Cargos</a></li>
+                                        <li class="nav-item"><a href="~/CentrosCostos" class="nav-link">Centros de costo</a></li>
+                                        <li class="nav-item"><a href="~/Jornadas" class="nav-link">Jornadas</a></li>
+                                        <li class="nav-item"><a href="~/Parametros" class="nav-link">Parametros</a></li>
+@*                                         <li class="nav-item"><a href="~/PerfilUsuario" class="nav-link">Perfil de usuario</a></li>
+ *@                                     <li class="nav-item"><a href="~/CambioClave" class="nav-link">Cambio de clave</a></li>
+                            </ul>
+                        </li>
+                                <li class="nav-item nav-item-submenu ">
+                                    <a href="#" class="nav-link"><i class="icon-quill2"></i> <span>Trabajador</span></a>
+                                    <ul class="nav-group-sub collapse" data-submenu-title="Trabajador">
+                                       <li class="nav-item nav-item-submenu ">
+                                                <li class="nav-item"><a href="~/Trabajadores" class="nav-link">Persona</a></li>
+                                                <li class="nav-item"><a href="~/Contratos" class="nav-link">Contrato</a></li>
+                                                <li class="nav-item"><a href="~/EstadoContrato" class="nav-link">Estado de contrato</a></li>
+                                      </li>
+@*                                         <li class="nav-item nav-item-submenu ">
+                                            <a href="#" class="nav-link"><i class="icon-wave2"></i> <span>Anexo</span></a>
+                                            <ul class="nav-group-sub collapse" data-submenu-title="Anexo">
+                                                <li class="nav-item"><a href="~/Anexos_Pendientes" class="nav-link">Pendientes de firma</a></li>
+                                                <li class="nav-item"><a href="~/Anexos_Firmados" class="nav-link">Firmados</a></li>
+                                            </ul>
+                                        </li>
+ *@                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+
+
+@*                         Control tiempo
+ *@
+                        <li class="nav-item nav-item-submenu ">
+                        <a href="#" class="nav-link"><i class="icon-book3"></i> <span>Control tiempo</span></a>
+                        <ul class="nav-group-sub collapse" data-submenu-title="Control tiempo">
+                                <li class="nav-item nav-item-submenu">
+                                <a href="#" class="nav-link"><i class="icon-quill2"></i> <span>Dispositivo movil</span></a>
+                                    <ul class="nav-group-sub collapse" data-submenu-title="Dispositivo movil">
+                                    <li class="nav-item"><a href="~/Usuarios" class="nav-link">Usuarios</a></li>
+                                        <li class="nav-item"><a href="~/Listar_Dispositivos" class="nav-link">Listado</a></li>
+                                        <li class="nav-item"><a href="~/Eliminar_Dispositivo" class="nav-link">Eliminar</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item nav-item-submenu">
+                                    <a href="#" class="nav-link"><i class="icon-quill2"></i> <span>Ajuste de marcación</span></a>
+                                    <ul class="nav-group-sub collapse" data-submenu-title="Ajuste de marcación">
+                                    <li class="nav-item"><a href="~/ModificaMarcas" class="nav-link">Modifica marcas</a></li>
+                                    <li class="nav-item"><a href="~/Observaciones_Marcas" class="nav-link">Observaciones</a></li>
+                                    <li class="nav-item"><a href="~/Turno_Trabajador" class="nav-link">Turno</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item nav-item-submenu">
+                                    <a href="#" class="nav-link"><i class="icon-quill2"></i> <span>Horas extras</span></a>
+                                    <ul class="nav-group-sub collapse" data-submenu-title="Horas extras">
+                                    <li class="nav-item"><a href="~/AutorizaSobretiempos" class="nav-link">Autoriza horas</a></li>
+                                    <li class="nav-item"><a href="~/Pacto_Horas" class="nav-link">Pacto horas extras</a></li>
+                                    <li class="nav-item"><a href="~/Pacto_Pendiente" class="nav-link">Pendientes de firma</a></li>
+                                    <li class="nav-item"><a href="~/Pacto_Rechazado" class="nav-link">Rechazadas</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item nav-item-submenu">
+                                    <a href="#" class="nav-link"><i class="icon-quill2"></i> <span>Reportes</span></a>
+                                    <ul class="nav-group-sub collapse" data-submenu-title="Reportes">
+                                    <li class="nav-item"><a href="~/Totales_trabajador" class="nav-link">Totale trabajados</a></li>
+                                    <li class="nav-item"><a href="~/Dotacion_diaria" class="nav-link">Dotación diara</a></li>
+                                    <li class="nav-item"><a href="~/ReporteMarcas" class="nav-link">Marcas</a></li>
+                                    <li class="nav-item"><a href="~/Registro_asistencia" class="nav-link">Registro de asistencia</a></li>
+                                    <li class="nav-item"><a href="~/ResumenAsistencias" class="nav-link">Resumen asistencia</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item nav-item-submenu">
+                                    <a href="#" class="nav-link"><i class="icon-quill2"></i> <span>Vacaciones</span></a>
+                                    <ul class="nav-group-sub collapse" data-submenu-title="Vacaciones">
+                                        <li class="nav-item nav-item-submenu">
+                                            <a href="#" class="nav-link"><i class="icon-quill2"></i> <span>Solicitud</span></a>
+                                            <ul class="nav-group-sub collapse" data-submenu-title="Solicitud">
+                                                <li class="nav-item"><a href="~/VacacionesSolicitud" class="nav-link">Vacaciones</a></li>
+                                                <li class="nav-item"><a href="~/CompensacionSolicitud" class="nav-link">Compensación</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="nav-item nav-item-submenu">
+                                            <a href="#" class="nav-link"><i class="icon-quill2"></i> <span>Reportes</span></a>
+                                            <ul class="nav-group-sub collapse" data-submenu-title="Reportes">
+@*                                                 <li class="nav-item"><a href="~/Periodos" class="nav-link">Periodos</a></li>
+                                                <li class="nav-item"><a href="~/Periodos_Usados" class="nav-link">Usados</a></li>
+ *@                                                <li class="nav-item"><a href="~/VacacionesCtaCte" class="nav-link">Detalle uso de vacaciones</a></li>
+                                                <li class="nav-item"><a href="~/VacacionesPersonal" class="nav-link">Personal en vacaciones</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="nav-item nav-item-submenu">
+                                            <a href="#" class="nav-link"><i class="icon-quill2"></i> <span>Aprobaciones</span></a>
+                                            <ul class="nav-group-sub collapse" data-submenu-title="Aprobaciones">
+                                                <li class="nav-item"><a href="~/VacacionesAutorizaJefe" class="nav-link">Jefe directo</a></li>
+                                                <li class="nav-item"><a href="~/VacacionesAutorizaPersonal" class="nav-link">Personal</a></li>
+                                                <li class="nav-item"><a href="~/CompensacionAutorizaPersonal" class="nav-link">Compensación</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item nav-item-submenu">
+                                    <a href="#" class="nav-link"><i class="icon-quill2"></i> <span>Permisos</span></a>
+                                    <ul class="nav-group-sub collapse" data-submenu-title="Permisos">
+                                        <li class="nav-item"><a href="~/PermisoAsistencia" class="nav-link">Solicitud</a></li>
+                                        <li class="nav-item"><a href="~/PermisoConsulta" class="nav-link">Consulta</a></li>
+                                        <li class="nav-item"><a href="~/PermisoAutoriza" class="nav-link">Autorización</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item nav-item-submenu">
+                                    <a href="#" class="nav-link"><i class="icon-quill2"></i> <span>Licencias medicas</span></a>
+                                    <ul class="nav-group-sub collapse" data-submenu-title="Licencias medicas">
+                                        <li class="nav-item"><a href="~/LicenciasMedicas" class="nav-link">Registro</a></li>
+                                        <li class="nav-item"><a href="~/LicenciasConsulta" class="nav-link">Consulta</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+ 
+@*                         Remuneraciones                       
+ *@                        
+                        <li class="nav-item nav-item-submenu ">
+                            <a href="#" class="nav-link"><i class="icon-book3"></i> <span>Remuneraciones</span></a>
+                            <ul class="nav-group-sub collapse" data-submenu-title="Remuneraciones">
+                                <li class="nav-item nav-item-submenu">
+                                    <a href="#" class="nav-link"><i class="icon-quill2"></i> <span>Conceptos</span></a>
+                                    <ul class="nav-group-sub collapse" data-submenu-title="Conceptos">
+                                        <li class="nav-item"><a href="~/Haberes" class="nav-link">Haberes</a></li>
+                                        <li class="nav-item"><a href="~/Descuentos" class="nav-link">Descuentos</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item nav-item-submenu">
+                                    <a href="#" class="nav-link"><i class="icon-quill2"></i> <span>Conceptos informados</span></a>
+                                    <ul class="nav-group-sub collapse" data-submenu-title="Conceptos informados">
+                                        <li class="nav-item"><a href="~/HaberesInformados" class="nav-link">Haberes</a></li>
+                                        <li class="nav-item"><a href="~/DescuentosInformados" class="nav-link">Descuentos</a></li>
+                                        <li class="nav-item"><a href="~/AsistenciasInformadas" class="nav-link">Asistencia</a></li>
+                                        <li class="nav-item"><a href="~/CuadraturaHaberes" class="nav-link">Cuadratura de haberes</a></li>
+                                        <li class="nav-item"><a href="~/CuadraturaDescuentos" class="nav-link">Cuadratura descuentos</a></li>
+                                        <li class="nav-item"><a href="~/CuadraturaAsistencias" class="nav-link">Cuadratura asistencia</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item nav-item-submenu">
+                                    <a href="#" class="nav-link"><i class="icon-quill2"></i> <span>Procesos</span></a>
+                                    <ul class="nav-group-sub collapse" data-submenu-title="Procesos">
+@*                                         <li class="nav-item"><a href="~/Importar_Informacion" class="nav-link">Importar información</a></li>
+ *@                                        <li class="nav-item"><a href="~/Liquidacion" class="nav-link">Liquidación</a></li>
+                                        <li class="nav-item"><a href="~/CierraProceso" class="nav-link">Cierre de mes</a></li>
+                                        <li class="nav-item"><a href="~/ReajusteSueldos" class="nav-link">Reajuste de sueldo</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item nav-item-submenu">
+                                    <a href="#" class="nav-link"><i class="icon-quill2"></i> <span>Reportes</span></a>
+                                    <ul class="nav-group-sub collapse" data-submenu-title="Reportes">
+                                        <li class="nav-item"><a href="~/LibroRemuneraciones" class="nav-link">Libro de remuneraciones</a></li>
+                                        <li class="nav-item"><a href="~/Papeletas" class="nav-link">Papeleta de pago</a></li>
+                                        <li class="nav-item"><a href="~/SaldosLiquidos" class="nav-link">Saldos liquidos</a></li>
+@*                                         <li class="nav-item"><a href="~/Resumen_Pago" class="nav-link">Resumen de pago</a></li>
+ *@                                    </ul>
+                                </li>
+                                <li class="nav-item nav-item-submenu">
+                                    <a href="#" class="nav-link"><i class="icon-quill2"></i> <span>Gestión de archivos</span></a>
+                                    <ul class="nav-group-sub collapse" data-submenu-title="Gestion_Archivos">
+@*                                         <li class="nav-item"><a href="~/Resumen_Pago" class="nav-link">Resumen de oago</a></li>
+ *@                                        <li class="nav-item"><a href="/ArchivoPrevired" class="nav-link">Previred</a></li>
+                                        <li class="nav-item"><a href="~/ArchivoDireccionTrabajo" class="nav-link">Archivo DT</a></li>
+                                        <li class="nav-item"><a href="~/ArchivoDepositos" class="nav-link">Depositos</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item nav-item-submenu">
+                                    <a href="#" class="nav-link"><i class="icon-quill2"></i> <span>Interfaz contabilidad</span></a>
+                                    <ul class="nav-group-sub collapse" data-submenu-title="Interfaz contabilidad">
+                                        <li class="nav-item"><a href="~/ConversionContable" class="nav-link">Conversión contable</a></li>
+                                        <li class="nav-item"><a href="~/ComprobanteContable" class="nav-link">Generar comprobantes</a></li>
+@*                                         <li class="nav-item"><a href="~/Importar_Contabilidad" class="nav-link">Importar de contabilidad</a></li>
+ *@                                    </ul>
+                                </li>
+                                <li class="nav-item nav-item-submenu">
+                                    <a href="#" class="nav-link"><i class="icon-quill2"></i> <span>Certificados</span></a>
+                                    <ul class="nav-group-sub collapse" data-submenu-title="Certificados">
+                                        <li class="nav-item"><a href="~/Antiguedad" class="nav-link">Antiguedad</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+
+@*                         Gestion documental                      
+ *@                        
+                        <li class="nav-item nav-item-submenu ">
+                            <a href="#" class="nav-link"><i class="icon-book3"></i> <span>Gestión documental</span></a>
+                            <ul class="nav-group-sub collapse" data-submenu-title="Gestión documental">
+                                <li class="nav-item"><a href="~/Ingreso_Documento class="nav-link">Ingreso de documento</a></li>
+                                <li class="nav-item"><a href="~/Busca_Documento" class="nav-link">Busca documento</a></li>
+                                <li class="nav-item"><a href="~/Pendiente_Firma" class="nav-link">Pendiente de firma</a></li>
+                            </ul>
+                        </li>
+
+@*                         Administracion                       
+ *@                        
+                        <li class="nav-item nav-item-submenu ">
+                            <a href="#" class="nav-link"><i class="icon-book3"></i> <span>Administración</span></a>
+                            <ul class="nav-group-sub collapse" data-submenu-title="Administración">
+                                <li class="nav-item nav-item-submenu">
+                                    <a href="#" class="nav-link"><i class="icon-quill2"></i> <span>Configuración</span></a>
+                                    <ul class="nav-group-sub collapse" data-submenu-title="Configuración">
+                                        <li class="nav-item"><a href="~/Empresas" class="nav-link">Empresas</a></li>
+                                        <li class="nav-item"><a href="~/Parametros" class="nav-link">Parámetros</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item nav-item-submenu">
+                                    <a href="#" class="nav-link"><i class="icon-quill2"></i> <span>Reportes</span></a>
+                                    <ul class="nav-group-sub collapse" data-submenu-title="Reportes">
+                                        <li class="nav-item"><a href="~/Bitacora" class="nav-link">Bitacora</a></li>
+                                        <li class="nav-item"><a href="~/Errores" class="nav-link">Errores</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+                <!-- /main navigation -->
+            <!-- /sidebar content -->
+
+        </div>
+        <!-- /main sidebar -->
+        <!-- Main content -->
+        <div class="content-wrapper">
+
+            <!-- Content area -->
+            <div class="content-inner">
+
+                <!-- Page header -->
+                <div class="page-header page-header-light shadow">
+                    <div class="page-header-content d-lg-flex">
+                        <div class="d-flex">
+                            <h4 class="page-title mb-0">
+                                Sistema de Recursos Humanos -
+                                <span class="fw-normal">(@contxt.HttpContext.Session.GetString("NombreEmpresaLog"))</span>
+                            </h4>
+
+                            <a href="#page_header" class="btn btn-light align-self-center collapsed d-lg-none border-transparent rounded-pill p-0 ms-auto" data-bs-toggle="collapse">
+                                <i class="ph-caret-down collapsible-indicator ph-sm m-1"></i>
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <div class="page-header-content d-lg-flex border-top">
+                        <div class="d-flex">
+                            <div class="breadcrumb py-2">
+                                <a href="/Inicio" class="breadcrumb-item"><i class="ph-house"></i></a>
+                                @if (ViewData["breadcrumb"]?.GetType() == typeof(Breadcrumb))
+                                {
+                                    <span class="breadcrumb-item">@((ViewData["breadcrumb"] as Breadcrumb)?.Modulo)</span>
+                                    <span class="breadcrumb-item active">@((ViewData["breadcrumb"] as Breadcrumb)?.SubModulo)</span>
+                                }
+
+                            </div>
+
+                            <a href="#breadcrumb_elements" class="btn btn-light align-self-center collapsed d-lg-none border-transparent rounded-pill p-0 ms-auto" data-bs-toggle="collapse">
+                                <i class="ph-caret-down collapsible-indicator ph-sm m-1"></i>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- /page header -->
+                <!-- Content Area -->
+                <div class="content">
+                    @RenderBody()
+                </div>
+                <!-- /Content Area -->
+                <!-- Footer -->
+                <div class="navbar navbar-sm navbar-footer border-top">
+                    <div class="container-fluid">
+                        &copy; 2015 - 2025 Gestión y Competencias Spa 2025-08-07
+                    </div>
+                </div>
+                <!-- /footer -->
+            </div>
+
+
+
+
+        </div>
+        <!-- /main content -->
+    </div>
+
+    <!-- Modal Cambio Empresa-->
+    @* <partial name="~/Views/Shared/Componentes/_ModalCambioEmpresa.cshtml" /> *@
+
+    <!-- /page content -->
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+

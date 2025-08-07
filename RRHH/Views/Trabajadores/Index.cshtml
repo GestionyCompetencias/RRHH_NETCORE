@@ -1,0 +1,190 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+@*                **************************************       Trabajador       **************************************                *@
+
+
+
+<link href="global_assets/css/icons/fontawesome/styles.min.css" rel="stylesheet" type="text/css">
+<script src="global_assets/js/demo_pages/form_floating_labels.js"></script>
+
+<div class="dataTables_wrapper no-footer">
+    <div class="card datatable-scroll-wrap">
+
+        <div class="card-header pb-0 d-flex justify-content-between">
+            <h2>Trabajadores</h2>
+            <button type="button" class="btn btn-primary bg-indigo-800 rounded-round btn-sm m-2" data-bs-toggle="modal" data-bs-target="#modal_Trabajadores" onclick="abrirModal()"><i class="ph-plus me-2"></i> Nuevo trabajador</button>
+        </div>
+
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12" align="center">
+                    <img id="esperar" src="global_assets/images/loading-gif.gif" style="height:30px;width:30px;" />
+                </div>
+
+            </div>
+
+            <div id="list_trabajadores"></div>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+
+@****@
+
+<div id="modal_Trabajadores" class="modal fade" tabindex="-1" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-header bg-dark pb-0">
+                <h2><label id="txt_Cabecera" class="text-light">Trabajadores</label></h2><label id="txt_id" class="cls_t text-indigo"></label>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="row">
+                    <div class="form-group form-group-float col-md-3">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">RUT</label>
+                        <div class="form-control-feedback form-control-feedback-start mb-3">
+                            <input type="text" id="txt_rut" class="form-control cls_t obl_t" name="RUT" placeholder="RUT*" required>
+                            <div class="form-control-feedback-icon">
+                                <i class="ph-identification-card"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group form-group-float col-md-5">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Nombres</label>
+                        <div class="form-control-feedback form-control-feedback-start mb-3">
+                            <input type="text" id="txt_nombres" class="form-control  cls_t obl_t" name="Nombres" placeholder="Nombres*" required>
+                            <div class="form-control-feedback-icon">
+                                <i class="ph-dots-nine"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group form-group-float col-md-4">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Apellidos</label>
+                        <div class="form-control-feedback form-control-feedback-start mb-3">
+                            <input type="text" id="txt_apellidos" class="form-control cls_t obl_t" name="Apellidos" placeholder="Apellidos*" required>
+                            <div class="form-control-feedback-icon">
+                                <i class="ph-dots-nine"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group form-group-float col-md-4">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Fecha nacimiento</label>
+                        <div class="form-control-feedback form-control-feedback-start mb-3">
+                            <input type="date" id="txt_fecnac" class="form-control cls_t obl_t" placeholder="Fecha nacimiento*" required>
+                            <div class="form-control-feedback-icon">
+                                <i class="ph-calendar"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <span>Sexo</span>
+                        <div class="input-group">
+                            <select class="form-control input-borde cls_t obl_t" name="txt_sexo" id="txt_sexo" required>
+                                <option value=''>-- Seleccione --</option>
+                                <option value='FEMENINO'>FEMENINO</option>
+                                <option value='MASCULINO'>MASCULINO</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group form-group-float col-md-4">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Nro.hijos</label>
+                        <div class="form-control-feedback form-control-feedback-start mb-3">
+                            <input type="text" id="txt_hijos" class="form-control" placeholder="Nro.hijos" required>
+                            <div class="form-control-feedback-icon">
+                                <i class="ph-baby"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group form-group-float col-md-4">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">País</label>
+                        <select id="cbo_pais" onchange="mostrarRegiones()" name="Pais" class="form-control m-0 p-0 cls_t Obl_t"></select>
+                    </div>
+                    <div class="form-group form-group-float col-md-4">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Región</label>
+                        <select id="cbo_region" onchange="mostrarComunas()" name="Región" class="form-control m-0 p-0 cls_t"></select>
+                    </div>
+                    <div class="form-group form-group-float col-md-4">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Comuna</label>
+                        <select id="cbo_comuna" class="form-control m-0 p-0 cls_t" name="Comuna"></select>
+                    </div>
+                </div>
+
+                <div class="row">
+                     <div class="form-group form-group-float col-md-12">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Dirección</label>
+                        <div class="form-control-feedback form-control-feedback-start mb-3">
+                            <input type="text" id="txt_direccion" class="form-control cls_t obl_t" name="Dirección" placeholder="Dirección*" required>
+                            <div class="form-control-feedback-icon">
+                                <i class="ph-house-line"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group form-group-float col-md-8">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Email</label>
+                        <div class="form-control-feedback form-control-feedback-start mb-3">
+                            <input type="text" id="txt_email" class="form-control  cls_t obl_t" placeholder="Email" required>
+                            <div class="form-control-feedback-icon">
+                                <i class="ph-envelope-simple"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group form-group-float col-md-4">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Teléfono</label>
+                        <div class="form-control-feedback form-control-feedback-start mb-3">
+                            <input type="text" id="txt_tlf" class="form-control cls_t" placeholder="Teléfono" required>
+                            <div class="form-control-feedback-icon">
+                                <i class="ph-phone-call"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div id="divErrores" style="font-weight:bold;color:red"></div>
+                </div>
+
+            </div>
+
+            <div class="modal-footer" style="text-align:right">
+                <button type="button" id="btnCerrar" class="btn btn-light legitRipple float-end" data-bs-dismiss="modal">Cerrar</button>
+                <input type="button" value="Guardar" class="btn btn-primary float-end" onclick="Guarda()" />
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+@section Scripts{
+    <script src="~/scripts/formatorut.js"></script>
+    <script src="~/scripts/Trabajadores.js"></script>
+}

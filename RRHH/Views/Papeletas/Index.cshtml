@@ -1,0 +1,71 @@
+﻿@*
+    PAPELETA DE PAGO
+*@
+@{
+}
+
+
+<link href="global_assets/css/icons/fontawesome/styles.min.css" rel="stylesheet" type="text/css">
+<script src="global_assets/js/demo_pages/form_floating_labels.js"></script>
+
+<script src="global_assets/js/plugins/tables/datatables/extensions/col_reorder.min.js"></script>
+<script src="global_assets/js/demo_pages/datatables_extension_reorder.js"></script>
+
+<script src="global_assets/js/plugins/tables/datatables/extensions/fixed_header.min.js"></script>
+<script src="global_assets/js/demo_pages/datatables_extension_fixed_header.js"></script>
+<script src="global_assets/js/plugins/tables/datatables/extensions/buttons.min.js"></script>
+<script src="global_assets/js/demo_pages/datatables_extension_colvis.js"></script>
+
+@using (Html.BeginForm("ListarPapeletas", "Papeletas", FormMethod.Post))
+{
+
+    <div class="dataTables_wrapper no-footer">
+        <div class="card datatable-scroll-wrap">
+
+            <div class="card-header pb-0 d-flex justify-content-between">
+                <h2><i class="icon-file-upload"></i>Genera papeleta</h2>
+            </div>
+
+            <div class="card-body">
+                <form id="form-filter">
+                    <div class="form-group form-group-floating row">
+                        <div class="col-md-3">
+                            <div class="position-relative">
+                                <select id="mes" name="mes" class="custom-select form-control-filled">
+                                </select>
+                                <label class="label-floating">Mes *</label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="position-relative">
+                                <select id="anio" name="anio" class="custom-select form-control-filled">
+                                </select>
+                                <label class="label-floating">Año *</label>
+                            </div>
+                        </div>
+                        <div class="col-md-2 d-flex justify-content-end">
+                            <div>
+                                <button type="submit" class="btn btn-secondary btn-labeled btn-labeled-left">
+                                <b><i class="icon-file-presentation2"></i></b>
+                                <span class="">Generar</span>
+                            </button>
+                        </div>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="row">
+                    <div class="col-md-12" align="center" id="esperar" style="display: none">
+                        <img src="global_assets/images/loading-gif.gif" style="height:30px;width:30px;" />
+                        <p>Cargando información, por favor espere un momento...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+   <script src="~/Scripts/ArchivoPrevired.js"></script>
+}

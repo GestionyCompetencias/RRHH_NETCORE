@@ -1,0 +1,106 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+@*                **************************************       Centros de costo       **************************************                *@
+
+
+
+<link href="global_assets/css/icons/fontawesome/styles.min.css" rel="stylesheet" type="text/css">
+<script src="global_assets/js/demo_pages/form_floating_labels.js"></script>
+
+<div class="dataTables_wrapper no-footer">
+    <div class="card datatable-scroll-wrap">
+
+        <div class="card-header pb-0 d-flex justify-content-between">
+            <h2>Centros de costo</h2>
+            <button type="button" class="btn btn-primary bg-indigo-800 rounded-round btn-sm m-2" data-bs-toggle="modal" data-bs-target="#modal_CentrosCostos" onclick="abrirModal()"><i class="ph-plus me-2"></i> Nuevo centro de costos</button>
+        </div>
+
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12" align="center">
+                    <img id="esperar" src="global_assets/images/loading-gif.gif" style="height:30px;width:30px;" />
+                </div>
+
+            </div>
+
+            <div id="list_centroscostos"></div>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+
+@****@
+
+<div id="modal_CentrosCostos" class="modal fade" tabindex="-1" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-header bg-dark pb-0">
+                <h2><label id="txt_Cabecera" class="text-light">Cargos</label></h2><label id="txt_id" class="cls_t text-indigo"></label>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="row">
+                    <div class="form-group form-group-float col-md-8">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Descripción</label>
+                        <div class="form-control-feedback form-control-feedback-start mb-3">
+                            <input type="text" id="txt_descripcion" class="form-control cls_t obl_t" name="Descripcion" placeholder="Descripción*" required>
+                            <div class="form-control-feedback-icon">
+                                <i class="ph-dots-nine"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                     <div class="form-group form-group-float col-md-4">
+                         <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Rut jefe</label>
+                            <div class="form-control-feedback form-control-feedback-start mb-3">
+                            <input type="text" id="txt_rutjefe" class="form-control cls_t" name="RutJefe" placeholder="Rut jefe" required>
+                            <div class="form-control-feedback-icon">
+                                <i class="ph-dots-nine"></i>
+                            </div>
+                        </div>
+                        </div>
+                    <div class="form-group form-group-float col-md-8">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Observaciones</label>
+                        <div class="form-control-feedback form-control-feedback-start mb-3">
+                            <input type="text" id="txt_observaciones" class="form-control cls_t" name="Observaciones" placeholder="Observaciones" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div id="divErrores" style="font-weight:bold;color:red" class="form-control cls_t"></div>
+                </div>
+
+            </div>
+
+            <div class="modal-footer" style="text-align:right">
+                <button type="button" id="btnCerrar" class="btn btn-light legitRipple float-end" data-bs-dismiss="modal">Cerrar</button>
+                <input type="button" value="Guardar" class="btn btn-primary float-end" onclick="Guarda()" />
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+@section Scripts{
+    <script src="~/scripts/formatorut.js"></script>
+    <script src="~/scripts/CentrosCostos.js"></script>
+}

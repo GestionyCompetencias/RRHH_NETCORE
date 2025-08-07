@@ -1,0 +1,197 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+@*                **************************************       Asistencia       **************************************                *@
+
+
+
+<link href="global_assets/css/icons/fontawesome/styles.min.css" rel="stylesheet" type="text/css">
+<script src="global_assets/js/demo_pages/form_floating_labels.js"></script>
+
+<div class="dataTables_wrapper no-footer">
+    <div class="card datatable-scroll-wrap">
+
+        <div class="card-header pb-0 d-flex justify-content-between">
+            <h2>Asistencias</h2>
+        </div>
+
+        <div class="card-body">
+            <div class="row">
+                <div class="form-group form-group-float col-md-2">
+                    <div class="form-group form-group-feedback form-group-feedback-left">
+                        <span>Mes</span>
+                        <select id="cbo_mes" class="custom-select form-control input-borde" required></select>
+                    </div>
+                </div>
+                <div class="form-group form-group-float col-md-2">
+                    <div class="form-group form-group-feedback form-group-feedback-left">
+                        <span>Año</span>
+                        <select id="cbo_anio" class="custom-select form-control input-borde" required></select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3" style="text-align:left">
+                    <input id="busca" type="button" value="Buscar" class="btn btn-primary bg-indigo-800 rounded-round btn-sm m-2" onclick="inicio()" />
+                </div>
+                <div class="col-md-3" style="text-align:right">
+                    <button id="nuevo" style="display: none;" type="button" class="btn btn-primary bg-indigo-800 rounded-round btn-sm m-2" data-bs-toggle="modal" data-bs-target="#modal_Asistenciasinformadas" onclick="abrirModal()">Nuevo registro</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12" align="center">
+                    <img id="esperar" src="global_assets/images/loading-gif.gif" style="height:30px;width:30px;" />
+                </div>
+
+            </div>
+
+            <div id="list_asistenciasinformadas"></div>
+
+        </div>
+
+    </div>
+ </div>
+
+
+
+
+@****@
+
+<div id="modal_Asistenciasinformadas" class="modal fade" tabindex="-1" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-header bg-dark pb-0">
+                <h2><label id="txt_Cabecera" class="text-light">Asistencias informadas</label></h2><label id="txt_id" class="cls_t text-indigo"></label>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="row">
+                    <div class="form-group form-group-float col-md-4">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Trabajador*</label>
+                        <div class="form-control-feedback form-control-feedback-start mb-3">
+                            <select id="cbo_trabajador" class="custom-select form-control input-borde"></select>
+                            <div class="form-control-feedback-icon">
+                                <i class="ph-dots-nine"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group form-group-float col-md-4">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Fecha</label>
+                        <div class="form-control-feedback form-control-feedback-start mb-3">
+                            <input type="date" id="txt_fecha" class="form-control cls_t Obl_t" placeholder="Fecha*" name="fecha" required>
+                            <div class="form-control-feedback-icon">
+                                <i class="ph-calendar"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="form-group form-group-float col-md-4">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Tipo ausentismo</label>
+                        <div class="form-control-feedback form-control-feedback-start mb-3">
+                            <select id="cbo_inasistencia" class="custom-select form-control input-borde"></select>
+                            <div class="form-control-feedback-icon">
+                                <i class="ph-dots-nine"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group form-group-float col-md-2">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Dias</label>
+                        <div class="form-control-feedback form-control-feedback-start mb-3">
+                            <input type="text" id="txt_dias" class="form-control cls_t" name="dias" placeholder="dias" required>
+                            <div class="form-control-feedback-icon">
+                                <i class="ph-dots-nine"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="form-group form-group-float col-md-3">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Sobretiempo 50%</label>
+                        <div class="form-control-feedback form-control-feedback-start mb-3">
+                            <input type="text" id="txt_extras1" class="form-control cls_t" name="horas extras 1" pattern="[0-9,]+" required>
+                            <div class="form-control-feedback-icon">
+                                <i class="ph-dots-nine"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group form-group-float col-md-3">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Sobretiempo 100%</label>
+                        <div class="form-control-feedback form-control-feedback-start mb-3">
+                            <input type="text" id="txt_extras2" class="form-control cls_t" name="horas extras 2" pattern="[0-9,]+" required>
+                            <div class="form-control-feedback-icon">
+                                <i class="ph-dots-nine"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group form-group-float col-md-3">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Sobretiempo 150%</label>
+                        <div class="form-control-feedback form-control-feedback-start mb-3">
+                            <input type="text" id="txt_extras3" class="form-control cls_t" name="horas extras 3" pattern="[0-9,]+" required>
+                            <div class="form-control-feedback-icon">
+                                <i class="ph-dots-nine"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group form-group-float col-md-3">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Dias colación</label>
+                        <div class="form-control-feedback form-control-feedback-start mb-3">
+                            <input type="text" id="txt_diascolacion" class="form-control cls_t" name="dias colación" required>
+                            <div class="form-control-feedback-icon">
+                                <i class="ph-dots-nine"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group form-group-float col-md-3">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Horas colación</label>
+                        <div class="form-control-feedback form-control-feedback-start mb-3">
+                            <input type="text" id="txt_horascolacion" class="form-control cls_t" name="horas colación" pattern="[0-9,]+" required>
+                            <div class="form-control-feedback-icon">
+                                <i class="ph-dots-nine"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group form-group-float col-md-3">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Dias movilización</label>
+                        <div class="form-control-feedback form-control-feedback-start mb-3">
+                            <input type="text" id="txt_diasmovilizacion" class="form-control cls_t" name="dias movilización" required>
+                            <div class="form-control-feedback-icon">
+                                <i class="ph-dots-nine"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div id="divErrores" style="font-weight:bold;color:red"></div>
+                </div>
+
+            </div>
+
+            <div class="modal-footer" style="text-align:right">
+                <button type="button" id="btnCerrar" class="btn btn-light legitRipple float-end" data-bs-dismiss="modal">Cerrar</button>
+                <input type="button" value="Guardar" class="btn btn-primary float-end" onclick="Guarda()" />
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script src="~/scripts/formatorut.js"></script>
+    <script src="~/scripts/AsistenciasInformadas.js"></script>
+}

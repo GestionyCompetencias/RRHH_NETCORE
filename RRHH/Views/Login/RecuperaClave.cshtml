@@ -1,0 +1,122 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+
+@if (ViewBag.Redireccionar == true)
+{
+    <script type="text/javascript">
+        alert("Se ha enviado un codigo de verificacion al correo predefinido.");
+    </script>
+    <meta http-equiv="refresh" content="0;URL=Index">
+}
+
+@if (ViewBag.ErrorInfo == true)
+{
+    <script type="text/javascript">
+        alert("No existe usuario");
+    </script>
+    <meta http-equiv="refresh" content="0;URL=RecuperaClave">
+}
+@if (ViewBag.Cancel == true)
+{
+    <meta content="0;URL=Index">
+}
+
+<html>
+
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>GYC Recursos Humanos</title>
+    <!--Global stylesheets -->
+
+    <link rel="stylesheet" type="text/css" href="/Content/css/icons/icomoon/styles.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/icons/fontawesome/styles.min.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/Content/css/bootstrap_limitless.min.css">
+    <link rel="stylesheet" type="text/css" href="/Content/css/layout.min.css">
+    <link rel="stylesheet" type="text/css" href="/Content/css/components.min.css">
+    <link rel="stylesheet" type="text/css" href="/Content/css/colors.min.css">
+    <link href="~/assets/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="page-content login-cover">
+        <div class="content-wrapper">
+            <div class="content d-flex justify-content-center align-items-center">
+                <form class="login-form wmin-sm-400" method="POST">
+                    <div class="card mb-0">
+
+
+
+                        <div class="tab-content card-body">
+                            <div class="tab-pane fade show active" id="login-tab1">
+                                <div class="text-center mb-3">
+                                    <h5 class="mb-0">Ingrese usuario</h5>
+                                </div>
+
+                                <div class="form-group form-group-feedback form-group-feedback-left">
+                                    <input type="text" class="form-control" placeholder="Usuario" name="usuario" id="usuario" >
+                                    <div class="form-control-feedback">
+                                        <i class="icon-user text-muted"></i>
+                                    </div>
+                               </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6" align="center">
+                                    <div class="form-group">
+                                    <button type="submit" class="btn btn-primary btn-block">Continuar</button>
+                                    </div>
+                                </div>
+                                <div class="col-md-6" align="center">
+                                    <div class="form-group">
+                                    <button type="submit" name="btn_cancelar" value="Cancelar" class="btn btn-primary btn-block">Cancelar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    @* Aca se deben colocar los JS *@
+    <script src="/Content/js/main/jquery.min.js"></script>
+    <script src="/Content/js/main/bootstrap.bundle.min.js"></script>
+    <script src="/Content/js/plugins/loaders/blockui.min.js"></script>
+    <script src="/Content/js/plugins/tables/datatables/datatables.min.js"></script>
+    <script src="/Content/js/plugins/forms/styling/switchery.min.js"></script>
+    <script src="/Content/js/plugins/forms/selects/select2.min.js"></script>
+    <script src="/Content/js/plugins/forms/styling/uniform.min.js"></script>
+    <script src="/Content/js/app.js"></script>
+    @*// Mascara para el RUT*@
+    <script>
+
+        function mascaras(TxtMascara) {
+
+            var input = document.getElementById(TxtMascara).value;
+            input = input.replace("-", "");
+
+            if (input.length > 2) {
+                document.getElementById(TxtMascara).value = input.substring(-1, input.length - 1) + "-" + input.substring(input.length - 1)
+            }
+        }
+
+    </script>
+
+
+
+</body>
+</html>
+

@@ -1,0 +1,22 @@
+{
+  "Title": "Externo",
+  "Modules": [
+    {
+      "Title": "ContabilidadBasica",
+      "SubModules": [
+        {
+          "Title": "Comprobantes",
+          "Features": [
+            {
+              "Title": "Ingreso",
+              "AccessList": {
+                "READ": "0" ,
+                "CREATE": "0" 
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,222 @@
+@model List<RRHH.Models.ViewModels.Papeleta>
+@{
+    Layout = null;
+}
+
+@foreach (var m in Model) {
+
+<head>
+    <title>Papeleta</title>
+
+@*         <link href="global_assets/css/icons/fontawesome/styles.min.css" rel="stylesheet" type="text/css">
+ *@        <link rel="stylesheet" href="global_assets/css/icons/fontawesome/NewPapeletaStyle.css" )">
+    <STYLE TYPE="text/css">
+        .breakhere {
+            page-break-after: always
+        }
+    </STYLE>
+</head>
+<body>
+    <div class="container">
+        <h1>LIQUIDACION DE SUELDO</h1>
+        <h2>REMUNERACIONES MES DE: @m.otrainf.mesdepago.ToUpper() DEL @m.otrainf.aniodepago</h2>
+
+        <div class="div-organizacion">
+            <div>
+                <h2 class="div-organizacion__h2">ORGANIZACION:</h2>
+                <p>@m.otrainf.empresa</p>
+            </div>
+            <div align="right">
+                <h2>RUT ORGANIZACION:</h2>
+                <p>@m.otrainf.rutempresa</p>
+            </div>
+        </div>
+        <hr>
+        <div class="div-trabajador">
+            <div>
+                <h2>TRABAJADOR</h2>
+                <p>@m.contrato.nombres @m.contrato.apellidos</p>
+            </div>
+            <div>
+                <h2>RUT</h2>
+                <p>@m.contrato.rut</p>
+            </div>
+            <div align="right">
+                <h2>FECHA INGRESO</h2>
+                <p>@m.contrato.inicio.ToString() </p>
+            </div>
+        </div>
+        <hr />
+        <div class="div-faena">
+            <div>
+                <h2>FAENA</h2>
+                <p>@m.otrainf.faenatrabajador</p>
+            </div>
+            <div>
+                <h2>CARGO</h2>
+                <p>@m.otrainf.cargo</p>
+            </div>
+        </div>
+        <hr>
+        <div class="div-info">
+            <div>
+                <h2>DIAS</h2>
+                <p>@m.otrainf.dias</p>
+            </div>
+            <div>
+                <h2>HORAS EXTRAS</h2>
+                <p>@m.otrainf.horasextras</p>
+            </div>
+            <div>
+                <h2>CARGAS</h2>
+                <p>@m.otrainf.cargas</p>
+            </div>
+            <div>
+                <h2>IMPONIBLE</h2>
+                <p>@m.otrainf.imponible.ToString("###,###,###")</p>
+            </div>
+            <div align="right">
+                <h2>TRIBUTABLE</h2>
+                <p>@m.otrainf.tributable.ToString("###,###,###")</p>
+            </div>
+        </div>
+        <hr />
+        <div class="div-afp-isapre">
+            <div class="div-afp">
+                <div>
+                    <h2 class="div-afp-isapre__h2">AFP</h2>
+                    <h3>@m.otrainf.nomafp</h3>
+                    <p>@m.otrainf.valafp.ToString("###,###,###") @m.otrainf.porafp</p>
+                </div>
+            </div>
+            <div>
+                <h2>Seguro Cesantia</h2>
+                <p>@m.otrainf.valseg.ToString("###,###,###") @m.otrainf.porseg</p>
+            </div>
+            <div class="div-isapre">
+                <div>
+                    <h2>ISAPRE</h2>
+                    <h3>@m.otrainf.nomisa</h3>
+                    <p>@m.otrainf.valisa.ToString("###,###,###") @m.otrainf.porisa</p>
+                </div>
+            </div>
+            <div class="div-impto">
+                <div align="right">
+                    <h2>IMPUESTO</h2>
+                    <p>@m.otrainf.impto.ToString("###,###,###")</p>
+                </div>
+            </div>
+        </div>
+        <div class="div-haberes-descuentos">
+            <div class="div-item-grid">
+                <h2 class="div-item-grid__h2">HABERES</h2>
+                <table>
+                    <tbody>
+                        @foreach (var item in m.haberes)
+                        {
+                            int monto = Convert.ToInt32(item.monto);
+                            if (item.monto != 0)
+                            {
+                                if (item.concepto < 100)
+                                {
+                                    <tr>
+                                        <td>
+                                            <p>@item.descripcion</p>
+                                        </td>
+                                        <td align="right">
+                                            <p>@monto.ToString("###,###,###")</p>
+                                        </td>
+                                    </tr>
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td>
+                                            <b>@item.descripcion</b>
+                                        </td>
+                                        <td align="right">
+                                            <b>@monto.ToString("###,###,###")</b>
+                                        </td>
+                                    </tr>
+                                }
+
+                            }
+
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="div-item-grid">
+                <h2>DESCUENTOS</h2>
+                <table class="col-lg-12 col-md-12 col-xs-12">
+                    <tbody>
+                        @foreach (var item in m.descuentos)
+                        {
+                            int monto = Convert.ToInt32(item.monto);
+                            if (item.concepto < 900 && item.concepto > 99)
+                            {
+                                <tr>
+                                    <td>
+                                        <p>@item.descripcion</p>
+                                    </td>
+                                    <td align="right">
+                                        <p>@monto.ToString("###,###,###")</p>
+                                    </td>
+                                </tr>
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td>
+                                        <b>@item.descripcion</b>
+                                    </td>
+                                    <td align="right">
+                                        <b>@monto.ToString("###,###,###")</b>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <br>
+        <div class="div-totales-hd">
+            <div class="div-hd-grid" align="center">
+                <h2 class="div-totales-hd__h2">TOTAL HABERES</h2>
+                <p>@m.otrainf.totalhaberes.ToString("###,###,###")</p>
+            </div>
+            <div class="div-hd-grid" align="center">
+                <h2>TOTAL DESCUENTOS</h2>
+                <p>@m.otrainf.totaldescuentos.ToString("###,###,###")</p>
+            </div>
+        </div>
+        <div class="div-otros">
+            <div align="center">
+                <h2  class="div-otros__h2">FECHA DE PAGO</h2>
+                <p>@m.otrainf.fechapago</p>
+            </div>
+            <div align="center">
+                <h2>ALCANCE LIQUIDO</h2>
+                <p>@m.otrainf.saldo.ToString("###,###,###")</p>
+            </div>
+        </div>
+        <hr>
+        <div class="div-firmas">
+            <div>
+                <br>
+                <hr>
+                <h3>FIRMA DEL EMPLEADOR</h3>
+
+            </div>
+            <div>
+                <br>
+                <hr>
+                <h3>FIRMA DEL TRABAJADOR</h3>
+
+            </div>
+        </div>
+    </div>
+</body>
+<p class="breakhere"></p>
+}

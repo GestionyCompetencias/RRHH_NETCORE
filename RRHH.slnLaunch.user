@@ -1,0 +1,11 @@
+[
+  {
+    "Name": "Nuevo perfil",
+    "Projects": [
+      {
+        "Path": "RRHH\\RRHH.csproj",
+        "Action": "StartWithoutDebugging"
+      }
+    ]
+  }
+]

@@ -1,0 +1,118 @@
+# ASP.NET Core (.NET Framework)
+# Build and test ASP.NET Core projects targeting the full .NET Framework.
+# Add steps that publish symbols, save build artifacts, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+trigger:
+- master
+
+pr: none
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+  projectName: 'RRHH'
+  websiteName: 'rrhh.beta.gycsol.cl'
+  appPoolName: 'rrhh.beta.gycsol.cl(domain)(4.0)(pool)'
+
+stages:
+  - stage: 'build_and_test'
+    displayName: 'Build and Test'
+    jobs:
+      - job:
+        steps:
+          - task: NuGetToolInstaller@1
+
+          - task: NuGetCommand@2
+            inputs:
+              restoreSolution: '$(solution)'
+
+          - task: VSBuild@1
+            inputs:
+              solution: '$(solution)'
+              msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
+              platform: '$(buildPlatform)'
+              configuration: '$(buildConfiguration)'
+
+          - task: DotNetCoreCLI@2
+            inputs:
+              command: test
+              projects: '**/ContabilidadTests/ContabilidadTests.csproj'
+              arguments: '--configuration $(buildConfiguration)'
+
+          - task: DotNetCoreCLI@2
+            displayName: 'Publish the project - $(buildConfiguration)'
+            inputs:
+              command: 'publish'
+              projects: '**/RRHH/RRHH.csproj'
+              publishWebProjects: false
+              arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(buildConfiguration) /p:EnvironmentName=Development'
+              zipAfterPublish: true
+
+          - publish: '$(Build.ArtifactStagingDirectory)'
+            artifact: drop
+
+  - stage: 'deploy_beta'
+    displayName: 'Deploy To Beta'
+    dependsOn: 'build_and_test'
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+    jobs:
+     - deployment: Beta
+       displayName: Beta
+       environment: 
+         name: 'MainServer'    
+         resourceType: VirtualMachine
+       variables:
+       - name: websitePhysicalPath
+         value: 'C:\inetpub\vhosts\gycsol.cl\rrhh.beta.gycsol.cl'
+  
+       strategy:
+        runOnce:
+          deploy:
+            steps: 
+            - task: IISWebAppManagementOnMachineGroup@0
+              name: 'StopIIS'
+              displayName: 'Stop IIS'
+              inputs:
+                IISDeploymentType: 'IISWebsite'
+                ActionIISWebsite: 'StopWebsite'
+                StartStopWebsiteName: '$(websiteName)'
+
+            - task: IISWebAppManagementOnMachineGroup@0
+              name: 'StopAppPool'
+              displayName: 'Stop App Pool'
+              inputs:
+                IISDeploymentType: 'IISApplicationPool'
+                ActionIISApplicationPool: 'RecycleAppPool'
+                StartStopRecycleAppPoolName: '$(AppPoolName)'
+                   
+            - task: IISWebAppManagementOnMachineGroup@0
+              inputs:            
+                IISDeploymentType: 'IISWebsite'
+                ActionIISWebsite: 'CreateOrUpdateWebsite'
+                WebsiteName: '$(websiteName)'
+                WebsitePhysicalPath: '$(websitePhysicalPath)'
+                WebsitePhysicalPathAuth: 'WebsiteUserPassThrough'
+                CreateOrUpdateAppPoolForWebsite: true
+                AppPoolNameForWebsite: '$(appPoolName)'
+                DotNetVersionForWebsite: 'No Managed Code'
+                PipeLineModeForWebsite: 'Integrated'
+                AppPoolIdentityForWebsite: 'ApplicationPoolIdentity'
+                AddBinding: false
+                    
+            - task: IISWebAppDeploymentOnMachineGroup@0
+              inputs:
+                WebSiteName: '$(websiteName)'
+                Package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/$(projectName).zip'
+
+            - task: IISWebAppManagementOnMachineGroup@0
+              name: 'StartIIS'
+              displayName: 'Start IIS'
+              inputs:
+                IISDeploymentType: 'IISWebsite'
+                ActionIISWebsite: 'StartWebsite'
+                StartStopWebsiteName: '$(websiteName)'

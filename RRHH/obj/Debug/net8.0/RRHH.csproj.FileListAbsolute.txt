@@ -1,0 +1,356 @@
+D:\Documents\Visual Studio 2022\RRHH\RRHH\obj\Debug\net8.0\RRHH.csproj.AssemblyReference.cache
+D:\Documents\Visual Studio 2022\RRHH\RRHH\obj\Debug\net8.0\RRHH.GeneratedMSBuildEditorConfig.editorconfig
+D:\Documents\Visual Studio 2022\RRHH\RRHH\obj\Debug\net8.0\RRHH.AssemblyInfoInputs.cache
+D:\Documents\Visual Studio 2022\RRHH\RRHH\obj\Debug\net8.0\RRHH.AssemblyInfo.cs
+D:\Documents\Visual Studio 2022\RRHH\RRHH\obj\Debug\net8.0\RRHH.csproj.CoreCompileInputs.cache
+D:\Documents\Visual Studio 2022\RRHH\RRHH\obj\Debug\net8.0\RRHH.MvcApplicationPartsAssemblyInfo.cache
+D:\Documents\Visual Studio 2022\RRHH\RRHH\obj\Debug\net8.0\RRHH.RazorAssemblyInfo.cache
+D:\Documents\Visual Studio 2022\RRHH\RRHH\obj\Debug\net8.0\RRHH.RazorAssemblyInfo.cs
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\appsettings.Development.json
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\appsettings.json
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\Data\Perfiles\admin_profile.json
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\Data\Perfiles\no_access.json
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\RRHH.staticwebassets.runtime.json
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\RRHH.exe
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\RRHH.deps.json
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\RRHH.runtimeconfig.json
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\RRHH.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\RRHH.pdb
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\Azure.Core.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\Azure.Identity.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\Azure.Storage.Blobs.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\Azure.Storage.Common.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\DnsClient.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\Microsoft.Identity.Client.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\MongoDB.Bson.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\MongoDB.Driver.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\Newtonsoft.Json.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\Rollbar.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\Rollbar.AppSettings.Json.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\Rollbar.NetCore.AspNet.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\Rollbar.NetPlatformExtensions.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\SharpCompress.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\Snappier.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\System.ClientModel.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\System.IO.Hashing.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\System.Memory.Data.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\System.Runtime.Caching.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\ZstdSharp.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\de\Microsoft.Data.SqlClient.resources.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\es\Microsoft.Data.SqlClient.resources.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\fr\Microsoft.Data.SqlClient.resources.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\it\Microsoft.Data.SqlClient.resources.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\ja\Microsoft.Data.SqlClient.resources.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\ko\Microsoft.Data.SqlClient.resources.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\pt-BR\Microsoft.Data.SqlClient.resources.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\ru\Microsoft.Data.SqlClient.resources.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\runtimes\unix\lib\net8.0\Microsoft.Data.SqlClient.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\runtimes\win\lib\net8.0\Microsoft.Data.SqlClient.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Runtime.Caching.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\obj\Debug\net8.0\staticwebassets.build.json
+D:\Documents\Visual Studio 2022\RRHH\RRHH\obj\Debug\net8.0\staticwebassets.development.json
+D:\Documents\Visual Studio 2022\RRHH\RRHH\obj\Debug\net8.0\staticwebassets\msbuild.RRHH.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Documents\Visual Studio 2022\RRHH\RRHH\obj\Debug\net8.0\staticwebassets\msbuild.build.RRHH.props
+D:\Documents\Visual Studio 2022\RRHH\RRHH\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.RRHH.props
+D:\Documents\Visual Studio 2022\RRHH\RRHH\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.RRHH.props
+D:\Documents\Visual Studio 2022\RRHH\RRHH\obj\Debug\net8.0\staticwebassets.pack.json
+D:\Documents\Visual Studio 2022\RRHH\RRHH\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+D:\Documents\Visual Studio 2022\RRHH\RRHH\obj\Debug\net8.0\scopedcss\bundle\RRHH.styles.css
+D:\Documents\Visual Studio 2022\RRHH\RRHH\obj\Debug\net8.0\scopedcss\projectbundle\RRHH.bundle.scp.css
+D:\Documents\Visual Studio 2022\RRHH\RRHH\obj\Debug\net8.0\RRHH.csproj.Up2Date
+D:\Documents\Visual Studio 2022\RRHH\RRHH\obj\Debug\net8.0\RRHH.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\obj\Debug\net8.0\refint\RRHH.dll
+D:\Documents\Visual Studio 2022\RRHH\RRHH\obj\Debug\net8.0\RRHH.pdb
+D:\Documents\Visual Studio 2022\RRHH\RRHH\obj\Debug\net8.0\RRHH.genruntimeconfig.cache
+D:\Documents\Visual Studio 2022\RRHH\RRHH\obj\Debug\net8.0\ref\RRHH.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\appsettings.json
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\Data\Perfiles\admin_profile.json
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\Data\Perfiles\no_access.json
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\RRHH.staticwebassets.runtime.json
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\RRHH.staticwebassets.endpoints.json
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\RRHH.exe
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\RRHH.deps.json
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\RRHH.runtimeconfig.json
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\RRHH.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\RRHH.pdb
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\Azure.Core.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\Azure.Identity.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\Azure.Storage.Blobs.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\Azure.Storage.Common.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\DnsClient.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\Microsoft.Identity.Client.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\MongoDB.Bson.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\MongoDB.Driver.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\Rollbar.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\Rollbar.AppSettings.Json.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\Rollbar.NetCore.AspNet.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\Rollbar.NetPlatformExtensions.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\SharpCompress.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\Snappier.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\System.ClientModel.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\System.IO.Hashing.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\System.Memory.Data.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\System.Runtime.Caching.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\ZstdSharp.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\de\Microsoft.Data.SqlClient.resources.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\es\Microsoft.Data.SqlClient.resources.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\fr\Microsoft.Data.SqlClient.resources.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\it\Microsoft.Data.SqlClient.resources.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\ja\Microsoft.Data.SqlClient.resources.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\ko\Microsoft.Data.SqlClient.resources.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\pt-BR\Microsoft.Data.SqlClient.resources.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\ru\Microsoft.Data.SqlClient.resources.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\runtimes\unix\lib\net8.0\Microsoft.Data.SqlClient.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\runtimes\win\lib\net8.0\Microsoft.Data.SqlClient.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Runtime.Caching.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\obj\Debug\net8.0\RRHH.csproj.AssemblyReference.cache
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\obj\Debug\net8.0\RRHH.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\obj\Debug\net8.0\RRHH.AssemblyInfoInputs.cache
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\obj\Debug\net8.0\RRHH.AssemblyInfo.cs
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\obj\Debug\net8.0\RRHH.csproj.CoreCompileInputs.cache
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\obj\Debug\net8.0\RRHH.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\obj\Debug\net8.0\RRHH.RazorAssemblyInfo.cache
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\obj\Debug\net8.0\RRHH.RazorAssemblyInfo.cs
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\obj\Debug\net8.0\scopedcss\bundle\RRHH.styles.css
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\obj\Debug\net8.0\scopedcss\projectbundle\RRHH.bundle.scp.css
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\obj\Debug\net8.0\staticwebassets\msbuild.RRHH.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\obj\Debug\net8.0\staticwebassets\msbuild.RRHH.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\obj\Debug\net8.0\staticwebassets\msbuild.build.RRHH.props
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.RRHH.props
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.RRHH.props
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\obj\Debug\net8.0\RRHH.csproj.Up2Date
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\obj\Debug\net8.0\RRHH.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\obj\Debug\net8.0\refint\RRHH.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\obj\Debug\net8.0\RRHH.pdb
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\obj\Debug\net8.0\RRHH.genruntimeconfig.cache
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\obj\Debug\net8.0\ref\RRHH.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\obj\Debug\net8.0\RRHH.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\RRHH\bin\Debug\net8.0\Rotativa.AspNetCore.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\appsettings.json
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\Data\Perfiles\admin_profile.json
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\Data\Perfiles\no_access.json
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\RRHH.staticwebassets.endpoints.json
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\RRHH.staticwebassets.runtime.json
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\RRHH.exe
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\RRHH.deps.json
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\RRHH.runtimeconfig.json
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\RRHH.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\RRHH.pdb
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\Azure.Core.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\Azure.Identity.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\Azure.Storage.Blobs.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\Azure.Storage.Common.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\DnsClient.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\Microsoft.Identity.Client.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\MongoDB.Bson.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\MongoDB.Driver.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\Rollbar.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\Rollbar.AppSettings.Json.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\Rollbar.NetCore.AspNet.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\Rollbar.NetPlatformExtensions.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\Rotativa.AspNetCore.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\SharpCompress.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\Snappier.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\System.ClientModel.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\System.IO.Hashing.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\System.Memory.Data.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\System.Runtime.Caching.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\ZstdSharp.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\de\Microsoft.Data.SqlClient.resources.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\es\Microsoft.Data.SqlClient.resources.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\fr\Microsoft.Data.SqlClient.resources.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\it\Microsoft.Data.SqlClient.resources.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\ja\Microsoft.Data.SqlClient.resources.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\ko\Microsoft.Data.SqlClient.resources.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\pt-BR\Microsoft.Data.SqlClient.resources.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\ru\Microsoft.Data.SqlClient.resources.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\runtimes\unix\lib\net8.0\Microsoft.Data.SqlClient.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\runtimes\win\lib\net8.0\Microsoft.Data.SqlClient.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Runtime.Caching.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\obj\Debug\net8.0\RRHH.csproj.AssemblyReference.cache
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\obj\Debug\net8.0\RRHH.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\obj\Debug\net8.0\RRHH.AssemblyInfoInputs.cache
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\obj\Debug\net8.0\RRHH.AssemblyInfo.cs
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\obj\Debug\net8.0\RRHH.csproj.CoreCompileInputs.cache
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\obj\Debug\net8.0\RRHH.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\obj\Debug\net8.0\RRHH.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\obj\Debug\net8.0\RRHH.RazorAssemblyInfo.cache
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\obj\Debug\net8.0\RRHH.RazorAssemblyInfo.cs
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\obj\Debug\net8.0\scopedcss\bundle\RRHH.styles.css
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\obj\Debug\net8.0\scopedcss\projectbundle\RRHH.bundle.scp.css
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\obj\Debug\net8.0\staticwebassets\msbuild.RRHH.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\obj\Debug\net8.0\staticwebassets\msbuild.RRHH.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\obj\Debug\net8.0\staticwebassets\msbuild.build.RRHH.props
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.RRHH.props
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.RRHH.props
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\obj\Debug\net8.0\RRHH.csproj.Up2Date
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\obj\Debug\net8.0\RRHH.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\obj\Debug\net8.0\refint\RRHH.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\obj\Debug\net8.0\RRHH.pdb
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\obj\Debug\net8.0\RRHH.genruntimeconfig.cache
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\obj\Debug\net8.0\ref\RRHH.dll
+C:\Users\jvall\source\NetCore\RepositorioRRHH\RRHH\RRHH\obj\Debug\net8.0\RRHH.sourcelink.json
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\appsettings.json
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\Data\Perfiles\admin_profile.json
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\Data\Perfiles\no_access.json
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\RRHH.staticwebassets.endpoints.json
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\RRHH.staticwebassets.runtime.json
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\RRHH.exe
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\RRHH.deps.json
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\RRHH.runtimeconfig.json
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\RRHH.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\RRHH.pdb
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\Azure.Core.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\Azure.Identity.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\Azure.Storage.Blobs.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\Azure.Storage.Common.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\DnsClient.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\Microsoft.Identity.Client.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\MongoDB.Bson.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\MongoDB.Driver.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\Rollbar.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\Rollbar.AppSettings.Json.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\Rollbar.NetCore.AspNet.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\Rollbar.NetPlatformExtensions.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\Rotativa.AspNetCore.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\SharpCompress.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\Snappier.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\System.ClientModel.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\System.IO.Hashing.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\System.Memory.Data.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\System.Runtime.Caching.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\ZstdSharp.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\de\Microsoft.Data.SqlClient.resources.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\es\Microsoft.Data.SqlClient.resources.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\fr\Microsoft.Data.SqlClient.resources.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\it\Microsoft.Data.SqlClient.resources.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\ja\Microsoft.Data.SqlClient.resources.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\ko\Microsoft.Data.SqlClient.resources.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\pt-BR\Microsoft.Data.SqlClient.resources.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\ru\Microsoft.Data.SqlClient.resources.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\runtimes\unix\lib\net8.0\Microsoft.Data.SqlClient.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\runtimes\win\lib\net8.0\Microsoft.Data.SqlClient.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Runtime.Caching.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\obj\Debug\net8.0\RRHH.csproj.AssemblyReference.cache
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\obj\Debug\net8.0\RRHH.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\obj\Debug\net8.0\RRHH.AssemblyInfoInputs.cache
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\obj\Debug\net8.0\RRHH.AssemblyInfo.cs
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\obj\Debug\net8.0\RRHH.csproj.CoreCompileInputs.cache
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\obj\Debug\net8.0\RRHH.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\obj\Debug\net8.0\RRHH.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\obj\Debug\net8.0\RRHH.RazorAssemblyInfo.cache
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\obj\Debug\net8.0\RRHH.RazorAssemblyInfo.cs
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\obj\Debug\net8.0\RRHH.sourcelink.json
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\obj\Debug\net8.0\scopedcss\bundle\RRHH.styles.css
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\obj\Debug\net8.0\scopedcss\projectbundle\RRHH.bundle.scp.css
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\obj\Debug\net8.0\staticwebassets\msbuild.RRHH.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\obj\Debug\net8.0\staticwebassets\msbuild.RRHH.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\obj\Debug\net8.0\staticwebassets\msbuild.build.RRHH.props
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.RRHH.props
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.RRHH.props
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\obj\Debug\net8.0\RRHH.csproj.Up2Date
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\obj\Debug\net8.0\RRHH.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\obj\Debug\net8.0\refint\RRHH.dll
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\obj\Debug\net8.0\RRHH.pdb
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\obj\Debug\net8.0\RRHH.genruntimeconfig.cache
+C:\Users\jvall\source\NetCore\RecursosHumanos\RRHH\obj\Debug\net8.0\ref\RRHH.dll

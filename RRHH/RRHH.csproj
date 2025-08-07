@@ -1,0 +1,167 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="wwwroot\lib\**" />
+    <Content Remove="wwwroot\lib\**" />
+    <EmbeddedResource Remove="wwwroot\lib\**" />
+    <None Remove="wwwroot\lib\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\assets\.DS_Store" />
+    <None Include="wwwroot\assets\css\.DS_Store" />
+    <None Include="wwwroot\assets\limitless_5\js\vendor\.DS_Store" />
+    <None Include="wwwroot\assets\limitless_5\js\vendor\media\.DS_Store" />
+    <None Include="wwwroot\assets\limitless_5\js\vendor\media\Archiver.app\Contents\Frameworks\Sparkle.framework\Versions\A\Resources\fr_CA.lproj" />
+    <None Include="wwwroot\assets\limitless_5\js\vendor\media\Archiver.app\Contents\Frameworks\Sparkle.framework\Versions\A\Resources\pt.lproj" />
+    <None Include="wwwroot\assets\limitless_5\js\vendor\notifications\.DS_Store" />
+    <None Include="wwwroot\global_assets\css\extras\.DS_Store" />
+    <None Include="wwwroot\global_assets\css\icons\fontawesome\.DS_Store" />
+    <None Include="wwwroot\global_assets\css\icons\summernote\.DS_Store" />
+    <None Include="wwwroot\global_assets\demo_data\.DS_Store" />
+    <None Include="wwwroot\global_assets\images\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\demo_charts\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\demo_charts\d3\other\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\demo_charts\echarts\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\demo_charts\echarts\dark\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\demo_charts\echarts\dark\bars\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\demo_charts\echarts\light\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\demo_charts\echarts\light\bars\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\demo_charts\google\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\demo_charts\pages\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\demo_charts\pages\dashboard\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\demo_charts\pages\ecommerce\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\demo_charts\pages\profile\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\demo_charts\pages\timelines\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\demo_pages\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\main\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\editors\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\editors\ckeditor\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\editors\ckeditor\plugins\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\editors\ckeditor\skins\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\editors\ckeditor\skins\dark\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\editors\ckeditor\skins\dark_rtl\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\editors\ckeditor\skins\default\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\editors\ckeditor\skins\default_rtl\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\editors\ckeditor\skins\material\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\editors\ckeditor\skins\material_rtl\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\editors\summernote\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\editors\summernote\lang\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\editors\trumbowyg\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\editors\trumbowyg\plugins\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\editors\trumbowyg\plugins\allowtagsfrompaste\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\editors\trumbowyg\plugins\base64\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\editors\trumbowyg\plugins\cleanpaste\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\editors\trumbowyg\plugins\colors\ui\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\editors\trumbowyg\plugins\emoji\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\editors\trumbowyg\plugins\emoji\ui\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\editors\trumbowyg\plugins\fontfamily\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\editors\trumbowyg\plugins\fontsize\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\editors\trumbowyg\plugins\giphy\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\editors\trumbowyg\plugins\giphy\ui\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\editors\trumbowyg\plugins\highlight\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\editors\trumbowyg\plugins\highlight\ui\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\editors\trumbowyg\plugins\history\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\editors\trumbowyg\plugins\insertaudio\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\editors\trumbowyg\plugins\lineheight\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\editors\trumbowyg\plugins\mathml\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\editors\trumbowyg\plugins\mathml\ui\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\editors\trumbowyg\plugins\mention\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\editors\trumbowyg\plugins\mention\ui\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\editors\trumbowyg\plugins\noembed\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\editors\trumbowyg\plugins\pasteembed\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\editors\trumbowyg\plugins\pasteimage\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\editors\trumbowyg\plugins\preformatted\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\editors\trumbowyg\plugins\resizimg\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\editors\trumbowyg\plugins\ruby\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\editors\trumbowyg\plugins\specialchars\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\editors\trumbowyg\plugins\specialchars\ui\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\editors\trumbowyg\plugins\table\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\editors\trumbowyg\plugins\table\ui\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\editors\trumbowyg\plugins\template\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\editors\trumbowyg\plugins\upload\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\editors\trumbowyg\ui\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\forms\selects\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\media\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\notifications\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\sliders\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\tables\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\tables\footable\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\ui\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\ui\fullcalendar\bootstrap\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\ui\fullcalendar\core\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\ui\fullcalendar\daygrid\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\ui\fullcalendar\google-calendar\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\ui\fullcalendar\interaction\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\ui\fullcalendar\list\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\ui\fullcalendar\luxon\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\ui\fullcalendar\moment-timezone\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\ui\fullcalendar\moment\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\ui\fullcalendar\rrule\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\ui\fullcalendar\timegrid\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\uploaders\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\uploaders\fileinput\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\uploaders\fileinput\plugins\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\visualization\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\visualization\c3\.DS_Store" />
+    <None Include="wwwroot\global_assets\js\plugins\visualization\echarts\.DS_Store" />
+    <None Include="wwwroot\global_assets\scss\.DS_Store" />
+    <None Include="wwwroot\global_assets\scss\layouts\.DS_Store" />
+    <None Include="wwwroot\global_assets\scss\layouts\layout_1\.DS_Store" />
+    <None Include="wwwroot\global_assets\scss\layouts\layout_1\dark\compile\.DS_Store" />
+    <None Include="wwwroot\global_assets\scss\layouts\layout_1\default\.DS_Store" />
+    <None Include="wwwroot\global_assets\scss\layouts\layout_1\default\compile\.DS_Store" />
+    <None Include="wwwroot\global_assets\scss\layouts\layout_1\default\compile\ckeditor\.DS_Store" />
+    <None Include="wwwroot\global_assets\scss\layouts\layout_1\material\compile\.DS_Store" />
+    <None Include="wwwroot\global_assets\scss\layouts\layout_2\.DS_Store" />
+    <None Include="wwwroot\global_assets\scss\layouts\layout_2\dark\compile\.DS_Store" />
+    <None Include="wwwroot\global_assets\scss\layouts\layout_3\.DS_Store" />
+    <None Include="wwwroot\global_assets\scss\layouts\layout_3\dark\compile\.DS_Store" />
+    <None Include="wwwroot\global_assets\scss\layouts\layout_4\.DS_Store" />
+    <None Include="wwwroot\global_assets\scss\layouts\layout_4\dark\compile\.DS_Store" />
+    <None Include="wwwroot\global_assets\scss\layouts\layout_5\.DS_Store" />
+    <None Include="wwwroot\global_assets\scss\layouts\layout_5\dark\compile\.DS_Store" />
+    <None Include="wwwroot\global_assets\scss\layouts\layout_5\dark\layout\.DS_Store" />
+    <None Include="wwwroot\global_assets\scss\shared\.DS_Store" />
+    <None Include="wwwroot\global_assets\scss\shared\icons\.DS_Store" />
+    <None Include="wwwroot\global_assets\scss\shared\icons\fontawesome\.DS_Store" />
+    <None Include="wwwroot\global_assets\scss\shared\icons\fontawesome\compile\.DS_Store" />
+    <None Include="wwwroot\global_assets\scss\shared\icons\icomoon\.DS_Store" />
+    <None Include="wwwroot\global_assets\scss\shared\icons\icomoon\compile\.DS_Store" />
+    <None Include="wwwroot\global_assets\scss\shared\icons\material\.DS_Store" />
+    <None Include="wwwroot\global_assets\scss\shared\icons\material\compile\.DS_Store" />
+    <None Include="wwwroot\global_assets\scss\themes\.DS_Store" />
+    <None Include="wwwroot\global_assets\scss\themes\dark\components\forms\editors\.DS_Store" />
+    <None Include="wwwroot\global_assets\scss\themes\dark\components\forms\editors\ckeditor\.DS_Store" />
+    <None Include="wwwroot\global_assets\scss\themes\dark\components\tables\.DS_Store" />
+    <None Include="wwwroot\global_assets\scss\themes\default\components\forms\editors\.DS_Store" />
+    <None Include="wwwroot\global_assets\scss\themes\default\components\forms\editors\ckeditor\.DS_Store" />
+    <None Include="wwwroot\global_assets\scss\themes\default\components\tables\.DS_Store" />
+    <None Include="wwwroot\global_assets\scss\themes\material\.DS_Store" />
+    <None Include="wwwroot\global_assets\scss\themes\material\components\forms\.DS_Store" />
+    <None Include="wwwroot\global_assets\scss\themes\material\components\tables\.DS_Store" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Azure.Identity" Version="1.13.1" />
+    <PackageReference Include="Azure.Storage.Blobs" Version="12.23.0" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.2" />
+    <PackageReference Include="MongoDB.Driver" Version="3.1.0" />
+    <PackageReference Include="Rollbar" Version="5.2.2" />
+    <PackageReference Include="Rollbar.NetCore.AspNet" Version="5.2.2" />
+    <PackageReference Include="Rotativa.AspNetCore" Version="1.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\ModificaMarcas\" />
+  </ItemGroup>
+
+</Project>

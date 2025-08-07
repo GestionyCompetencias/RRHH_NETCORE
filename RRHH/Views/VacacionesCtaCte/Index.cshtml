@@ -1,0 +1,81 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="global_assets/css/icons/fontawesome/styles.min.css" rel="stylesheet" type="text/css">
+<script src="global_assets/js/demo_pages/form_floating_labels.js"></script>
+
+<div class="dataTables_wrapper no-footer">
+    <div class="card datatable-scroll-wrap">
+
+        <div class="card-header pb-0 d-flex justify-content-between">
+            <h2>Cuenta corriente vacaciones</h2>
+        </div>
+
+        <div class="card-body">
+            <div class="row">
+                <div class="form-group form-group-float col-md-4">
+                    <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Trabajador*</label>
+                    <div class="form-control-feedback form-control-feedback-start mb-3">
+                        <select id="cbo_persona" class="custom-select form-control input-borde"></select>
+                        <div class="form-control-feedback-icon">
+                            <i class="ph-dots-nine"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group form-group-float col-md-4">
+                    <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Fecha desde</label>
+                    <div class="form-control-feedback form-control-feedback-start mb-3">
+                        <input type="date" id="txt_desde" class="form-control cls_t"  name="desde" required>
+                        <div class="form-control-feedback-icon">
+                            <i class="ph-calendar"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group form-group-float col-md-4">
+                    <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Fecha hasta</label>
+                    <div class="form-control-feedback form-control-feedback-start mb-3">
+                        <input type="date" id="txt_hasta" class="form-control cls_t"  name="hasta" required>
+                        <div class="form-control-feedback-icon">
+                            <i class="ph-calendar"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 d-flex justify-content-end">
+                    <div>
+                        <button type="button" id="btn-filter" class="btn btn-secondary btn-labeled btn-labeled-left">
+                            <b><i class="icon-file-presentation2"></i></b>
+                            <span class="">Generar</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12" align="center">
+                    <img id="esperar" src="global_assets/images/loading-gif.gif" style="height:30px;width:30px;" />
+                </div>
+
+            </div>
+
+            <div id="list_vacacionesctacte"></div>
+
+        </div>
+
+    </div>
+</div>
+
+
+@****@
+
+
+
+@section Scripts{
+    <!-- Theme JS files -->
+    <script src="~/Scripts/VacacionesCtaCte.js"></script>
+
+}

@@ -1,0 +1,93 @@
+﻿@*
+    LIBRO REMUNERACIONES
+*@
+@{
+}
+
+
+<link href="global_assets/css/icons/fontawesome/styles.min.css" rel="stylesheet" type="text/css">
+<script src="global_assets/js/demo_pages/form_floating_labels.js"></script>
+
+<script src="global_assets/js/plugins/tables/datatables/extensions/col_reorder.min.js"></script>
+<script src="global_assets/js/demo_pages/datatables_extension_reorder.js"></script>
+
+<script src="global_assets/js/plugins/tables/datatables/extensions/fixed_header.min.js"></script>
+<script src="global_assets/js/demo_pages/datatables_extension_fixed_header.js"></script>
+<script src="global_assets/js/plugins/tables/datatables/extensions/buttons.min.js"></script>
+<script src="global_assets/js/demo_pages/datatables_extension_colvis.js"></script>
+
+
+<div class="dataTables_wrapper no-footer">
+    <div class="card datatable-scroll-wrap">
+
+        <div class="card-header pb-0 d-flex justify-content-between">
+            <h2><i class="icon-book"></i> Resumen de asistencias</h2>
+        </div>
+
+        <div class="card-body">
+            <h4>Filtrar por:</h4>
+            <form id="form-filter">
+                <div class="form-group form-group-floating row">
+                    <div class="col-md-3">
+                        <div class="position-relative">
+                            <select id="mes" name="mes" class="custom-select form-control-filled">
+                            </select>
+                            <label class="label-floating">Mes *</label>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="position-relative">
+                            <select id="anio" name="anio" class="custom-select form-control-filled">
+                            </select>
+                            <label class="label-floating">Año *</label>
+                        </div>
+                    </div>
+                    <div class="col-md-2 d-flex justify-content-end">
+                        <div>
+                            <button type="button" id="btn-filter" class="btn btn-secondary btn-labeled btn-labeled-left">
+                                <b><i class="icon-file-presentation2"></i></b>
+                                <span class="">Generar</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <div class="row">
+                <div class="col-md-12" align="center" id="esperar" style="display: none">
+                    <img src="global_assets/images/loading-gif.gif" style="height:30px;width:30px;" />
+                    <p>Cargando información, por favor espere un momento...</p>
+                </div>
+            </div>
+
+            <div id="print-export" class="row" style="display: none">
+                <div class="col-md-12 d-flex justify-content-end border-top-1 pt-3" style="border-color: #c2c2c2">
+                    <button id="impress_diario" class="btn btn-outline-primary btn-rounded">
+                        Imprimir
+                    </button>
+
+                    <button id="export" class="btn btn-outline-primary btn-rounded ml-2">
+                        Exportar a Excel
+                    </button>
+                </div>
+            </div>
+            <div id="list_asistencias" class="mt-2">
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+<div id="zona_imprimir" style="display: none">
+    <!--<h3 style="text-align: center; border-bottom: 1px solid #c3c3c3" id="title-impresion"></h3>-->
+    <div id="content-impresion">
+    </div>
+</div>
+
+@section Scripts {
+@*     <script src="global_assets/js/plugins/PrintArea/js/jquery.printarea.js"></script>
+ *@@*     <script src="//cdn.rawgit.com/rainabba/jquery-table2excel/1.1.0/dist/jquery.table2excel.min.js"></script>
+     *@    <script src="~/Scripts/ResumenAsistencias.js"></script>
+}

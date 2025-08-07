@@ -1,0 +1,68 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+@*                **************************************       Perfil usuario       **************************************                *@
+
+@*// Funciones *@
+<script>
+    function Generar() {
+            var usuario = document.getElementById("usuario").value;
+            var perfil = document.getElementById("perfil").value;
+
+      var frm = new FormData();
+     frm.append("usuario", usuario);
+     frm.append("perfil", perfil);
+
+         $.ajax({
+             type: "POST",
+             url: "PerfilUsuario",
+             data: frm,
+             contentType: false,
+             processData: false,
+
+             success: function (data) {
+                     alert(data.info.mensaje);
+             }
+         });
+    }
+
+</script>
+
+
+
+
+<link href="global_assets/css/icons/fontawesome/styles.min.css" rel="stylesheet" type="text/css">
+<script src="global_assets/js/demo_pages/form_floating_labels.js"></script>
+
+<div class="dataTables_wrapper no-footer">
+    <div class="card datatable-scroll-wrap">
+
+        <div class="card-header pb-0 d-flex justify-content-between">
+            <h2>Perfil usuario</h2>
+        </div>
+
+        <div class="card-body">
+            <div class="form-group row">
+                <div class="col-lg-2">
+                    <span>Usuario</span>
+                    <input id ="usuario" name="usuario" class="form-control input-borde" type="text" />
+                </div>
+                <div class="col-lg-2">
+                    <span>Perfil</span>
+                    <select class="custom-select form-control input-borde" id="perfil" name="perfil">
+                        <option value="1">Administrador</option>
+                        <option value="2">Jefe directo</option>
+                        <option value="0">Trabajador</option>
+                    </select>
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary bg-indigo-800 rounded-round btn-sm m-2" onclick="Generar()">Generar</button>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,63 @@
+﻿@*
+    CUADRATURA HABERES
+*@
+@{
+}
+
+
+<link href="global_assets/css/icons/fontawesome/styles.min.css" rel="stylesheet" type="text/css">
+<script src="global_assets/js/demo_pages/form_floating_labels.js"></script>
+
+<script src="global_assets/js/plugins/tables/datatables/extensions/col_reorder.min.js"></script>
+<script src="global_assets/js/demo_pages/datatables_extension_reorder.js"></script>
+
+<script src="global_assets/js/plugins/tables/datatables/extensions/fixed_header.min.js"></script>
+<script src="global_assets/js/demo_pages/datatables_extension_fixed_header.js"></script>
+<script src="global_assets/js/plugins/tables/datatables/extensions/buttons.min.js"></script>
+<script src="global_assets/js/demo_pages/datatables_extension_colvis.js"></script>
+
+
+<div class="dataTables_wrapper no-footer">
+    <div class="card datatable-scroll-wrap">
+
+        <div class="card-header pb-0 d-flex justify-content-between">
+            <h2><i class="counter-icon"></i>Reajuste de sueldos</h2>
+        </div>
+
+        <div class="card-body">
+         <form id="form-filter">
+           <div class="row form-group-float col-md-4">
+                <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Reajuste</label>
+                <div class="form-control-feedback form-control-feedback-start mb-3">
+                    <input type="text" id="txt_reajuste" class="form-control cls_t Obl_t" name="reajuste" placeholder="% de reajuste" required>
+                    <div class="form-control-feedback-icon">
+                        <i class="ph-percent"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3" style="text-align:left">
+                        <input id="busca" type="button" value="Procesar" class="btn btn-primary bg-indigo-800 rounded-round btn-sm m-2" onclick="obtenerDatosValidos()" />
+                </div>
+                <div class="col-md-3" style="text-align:right">
+                    <button id="Grabar" style="display: none;" type="button" class="btn btn-primary bg-indigo-800 rounded-round btn-sm m-2" onclick="Grabar()">Nuevo registro</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12" align="center">
+                    <img id="esperar" src="global_assets/images/loading-gif.gif" style="height:30px;width:30px;" />
+                </div>
+
+            </div>
+
+            <div id="list_reajuste"></div>
+          </form>
+
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script src="~/Scripts/ReajusteSueldos.js"></script>
+}

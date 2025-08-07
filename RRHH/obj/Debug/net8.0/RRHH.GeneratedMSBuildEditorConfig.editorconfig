@@ -1,0 +1,257 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = RRHH
+build_property.RootNamespace = RRHH
+build_property.ProjectDir = C:\Users\jvall\source\NetCore\RRHH_NETCORE\RRHH\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\jvall\source\NetCore\RRHH_NETCORE\RRHH
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/ArchivoDepositos/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJjaGl2b0RlcG9zaXRvc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/ArchivoDireccionTrabajo/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJjaGl2b0RpcmVjY2lvblRyYWJham9cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/ArchivoPrevired/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJjaGl2b1ByZXZpcmVkXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/AsistenciasInformadas/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNpc3RlbmNpYXNJbmZvcm1hZGFzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/AutorizaSobretiempos/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0b3JpemFTb2JyZXRpZW1wb3NcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/CambioClave/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FtYmlvQ2xhdmVcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/Cargos/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FyZ29zXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/CentrosCostos/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2VudHJvc0Nvc3Rvc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/CierraProceso/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2llcnJhUHJvY2Vzb1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/CompensacionAutorizaPersonal/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGVuc2FjaW9uQXV0b3JpemFQZXJzb25hbFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/CompensacionSolicitud/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGVuc2FjaW9uU29saWNpdHVkXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/ComprobanteContable/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcHJvYmFudGVDb250YWJsZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/Contratos/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udHJhdG9zXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/ConversionContable/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udmVyc2lvbkNvbnRhYmxlXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/CuadraturaAsistencias/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VhZHJhdHVyYUFzaXN0ZW5jaWFzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/CuadraturaDescuentos/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VhZHJhdHVyYURlc2N1ZW50b3NcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/CuadraturaHaberes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VhZHJhdHVyYUhhYmVyZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/DescuentosInformados/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzY3VlbnRvc0luZm9ybWFkb3NcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/Descuentos/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzY3VlbnRvc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/Empresas/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wcmVzYXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/EstadoContrato/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0YWRvQ29udHJhdG9cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/Faenas/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFlbmFzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/HaberesInformados/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGFiZXJlc0luZm9ybWFkb3NcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/Haberes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGFiZXJlc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/Inicio/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5pY2lvXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/Jornadas/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSm9ybmFkYXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/LibroRemuneraciones/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGlicm9SZW11bmVyYWNpb25lc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/LicenciasConsulta/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGljZW5jaWFzQ29uc3VsdGFcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/LicenciasMedicas/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGljZW5jaWFzTWVkaWNhc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/Liquidacion/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGlxdWlkYWNpb25cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/Login/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/Login/NuevaClave.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTnVldmFDbGF2ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/Login/RecuperaClave.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cUmVjdXBlcmFDbGF2ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/ModificaMarcas/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9kaWZpY2FNYXJjYXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/Papeletas/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFwZWxldGFzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/Papeletas/ListarPapeletas.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFwZWxldGFzXExpc3RhclBhcGVsZXRhcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/Papeletas/PapeletaMasiva.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFwZWxldGFzXFBhcGVsZXRhTWFzaXZhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/Parametros/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFyYW1ldHJvc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/PerfilUsuario/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyZmlsVXN1YXJpb1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/PermisoAsistencia/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVybWlzb0FzaXN0ZW5jaWFcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/PermisoAutoriza/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVybWlzb0F1dG9yaXphXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/PermisoConsulta/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVybWlzb0NvbnN1bHRhXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/ReajusteSueldos/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVhanVzdGVTdWVsZG9zXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/ReporteMarcas/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZU1hcmNhc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/ResumenAsistencias/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzdW1lbkFzaXN0ZW5jaWFzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/SaldosLiquidos/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsZG9zTGlxdWlkb3NcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/Trabajadores/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhYmFqYWRvcmVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/VacacionesAutorizajefe/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFjYWNpb25lc0F1dG9yaXphamVmZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/VacacionesAutorizaPersonal/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFjYWNpb25lc0F1dG9yaXphUGVyc29uYWxcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/VacacionesCtaCte/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFjYWNpb25lc0N0YUN0ZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/VacacionesPersonal/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFjYWNpb25lc1BlcnNvbmFsXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/VacacionesSolicitud/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFjYWNpb25lc1NvbGljaXR1ZFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jvall/source/NetCore/RRHH_NETCORE/RRHH/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-nhjzky3wvk

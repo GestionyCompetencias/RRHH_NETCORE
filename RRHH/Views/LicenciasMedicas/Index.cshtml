@@ -1,0 +1,157 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+@*                **************************************       Licencias medicas       **************************************                *@
+
+
+
+<link href="global_assets/css/icons/fontawesome/styles.min.css" rel="stylesheet" type="text/css">
+<script src="global_assets/js/demo_pages/form_floating_labels.js"></script>
+
+<div class="dataTables_wrapper no-footer">
+    <div class="card datatable-scroll-wrap">
+
+        <div class="card-header pb-0 d-flex justify-content-between">
+            <h2>Licencias medicas</h2>
+        </div>
+
+        <div class="card-body">
+            <div class="row">
+                <div class="form-group form-group-float col-md-4">
+                    <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Trabajador*</label>
+                    <div class="form-control-feedback form-control-feedback-start mb-3">
+                        <select id="cbo_trabajador" class="custom-select form-control input-borde"></select>
+                        <div class="form-control-feedback-icon">
+                            <i class="ph-dots-nine"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3" style="text-align:left">
+                    <input id="busca" type="button" value="Buscar" class="btn btn-primary bg-indigo-800 rounded-round btn-sm m-2" onclick="inicio()" />
+                </div>
+                <div class="col-md-3" style="text-align:right">
+                    <button id="nuevo" style="display: none;" type="button" class="btn btn-primary bg-indigo-800 rounded-round btn-sm m-2" data-bs-toggle="modal" data-bs-target="#modal_licencias" onclick="abrirModal()">Nuevo registro</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12" align="center">
+                    <img id="esperar" src="global_assets/images/loading-gif.gif" style="height:30px;width:30px;" />
+                </div>
+
+            </div>
+
+            <div id="list_licencias"></div>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+
+@****@
+
+<div id="modal_licencias" class="modal fade" tabindex="-1" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-header bg-dark pb-0">
+                <h2><label id="txt_Cabecera" class="text-light">Licencias medicas</label></h2><label id="txt_id" class="cls_t text-indigo"></label>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="row">
+                    <div class="form-group form-group-float col-md-3">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Codigo licencia</label>
+                        <div class="form-control-feedback form-control-feedback-start mb-3">
+                            <input type="text" id="txt_codigo" class="form-control cls_t" name="codigo licencia" placeholder="Codigo licencia" required>
+                            <div class="form-control-feedback-icon">
+                                <i class="ph-number-circle-nine"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group form-group-float col-md-3">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Fecha inicio</label>
+                        <div class="form-control-feedback form-control-feedback-start mb-3">
+                            <input type="date" id="txt_inicio" class="form-control cls_t Obl_t" placeholder="Fecha inicio" name="fecha inicio" required>
+                            <div class="form-control-feedback-icon">
+                                <i class="ph-calendar"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group form-group-float col-md-3">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Fecha termino</label>
+                        <div class="form-control-feedback form-control-feedback-start mb-3">
+                            <input type="date" id="txt_termino" class="form-control cls_t Obl_t" placeholder="fecha termino" name="fecha termino" required>
+                            <div class="form-control-feedback-icon">
+                                <i class="ph-calendar"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="form-group form-group-float col-md-4">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Dias</label>
+                        <div class="form-control-feedback form-control-feedback-start mb-3">
+                            <input type="text" id="txt_dias" class="form-control cls_t Obl_t" name="dias" placeholder="dias" required>
+                            <div class="form-control-feedback-icon">
+                                <i class="ph-number-circle-nine"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group form-group-float col-md-4">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Tipo de licencia</label>
+                        <div class="form-control-feedback form-control-feedback-start mb-3">
+                            <select id="cbo_licencia" class="custom-select form-control input-borde"></select>
+                        </div>
+                    </div>
+                    <div class="form-group form-group-float col-md-4">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Tipo de medico</label>
+                        <div class="form-control-feedback form-control-feedback-start mb-3">
+                            <select id="cbo_medico" class="custom-select form-control input-borde"></select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group form-group-float col-md-8">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Comentario</label>
+                        <div class="form-control-feedback form-control-feedback-start mb-3">
+                            <input type="text" id="txt_comentario" class="form-control cls_t " name="comentario">
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    <div id="divErrores" style="font-weight:bold;color:red"></div>
+                </div>
+
+            </div>
+
+            <div class="modal-footer" style="text-align:right">
+                <button type="button" id="btnCerrar" class="btn btn-light legitRipple float-end" data-bs-dismiss="modal">Cerrar</button>
+                <input type="button" value="Guardar" class="btn btn-primary float-end" onclick="Guarda()" />
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script src="~/scripts/formatorut.js"></script>
+    <script src="~/scripts/LicenciasMedicas.js"></script>
+}

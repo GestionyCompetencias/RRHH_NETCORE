@@ -1,0 +1,171 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+@*                **************************************       Haberes informados       **************************************                *@
+
+
+
+<link href="global_assets/css/icons/fontawesome/styles.min.css" rel="stylesheet" type="text/css">
+<script src="global_assets/js/demo_pages/form_floating_labels.js"></script>
+
+<div class="dataTables_wrapper no-footer">
+    <div class="card datatable-scroll-wrap">
+
+        <div class="card-header pb-0 d-flex justify-content-between">
+            <h2>Haberes informados</h2>
+        </div>
+
+        <div class="card-body">
+            <div class="row">
+                <div class="form-group form-group-float col-md-4">
+                    <div class="form-group form-group-feedback form-group-feedback-left">
+                        <span>Haber</span>
+                        <select id="cbo_haberes" class="custom-select form-control input-borde"></select>
+                    </div>
+                </div>
+                <div class="form-group form-group-float col-md-2">
+                    <div class="form-group form-group-feedback form-group-feedback-left">
+                        <span>Mes</span>
+                        <select id="cbo_mes" class="custom-select form-control input-borde"></select>
+                    </div>
+                </div>
+                <div class="form-group form-group-float col-md-2">
+                    <div class="form-group form-group-feedback form-group-feedback-left">
+                        <span>Año</span>
+                        <select id="cbo_anio" class="custom-select form-control input-borde"></select>
+                    </div>
+                </div>
+                <div class="form-group form-group-float col-md-2">
+                    <div class="form-group form-group-feedback form-group-feedback-left">
+                        <span>Pago</span>
+                        <select id="cbo_pago" class="custom-select form-control input-borde"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3" style="text-align:left">
+                    <input id="busca" type="button" value="Buscar" class="btn btn-primary bg-indigo-800 rounded-round btn-sm m-2" onclick="inicio()" />
+                </div>
+                <div class="col-md-3" style="text-align:right">
+                    <button id="nuevo" style="display: none;" type="button" class="btn btn-primary bg-indigo-800 rounded-round btn-sm m-2" data-bs-toggle="modal" data-bs-target="#modal_Haberesinformados" onclick="abrirModal()">Nuevo registro</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12" align="center">
+                    <img id="esperar" src="global_assets/images/loading-gif.gif" style="height:30px;width:30px;" />
+                </div>
+
+            </div>
+
+            <div id="list_haberesinformados"></div>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+
+@****@
+
+<div id="modal_Haberesinformados" class="modal fade" tabindex="-1" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-header bg-dark pb-0">
+                <h2><label id="txt_Cabecera" class="text-light">Haberes informados</label></h2><label id="txt_id" class="cls_t text-indigo"></label>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="row">
+                    <div class="form-group form-group-float col-md-4">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Trabajador*</label>
+                        <div class="form-control-feedback form-control-feedback-start mb-3">
+                            <select id="cbo_trabajador" class="custom-select form-control input-borde"></select>
+                            <div class="form-control-feedback-icon">
+                                <i class="ph-dots-nine"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group form-group-float col-md-4">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Tipo calculo*</label>
+                        <div class="form-control-feedback form-control-feedback-start mb-3">
+                            <select type="text" id="txt_tipocalculo" class="custom-select form-control input-borde Cls_t Obl_t" name="tipo cálculo">
+                                <option value="M">Pesos</option>
+                                <option value="P">Porcentage sueldo</option>
+                                <option value="U">Ufs</option>
+                            </select>
+                            <div class="form-control-feedback-icon">
+                                <i class="ph-dots-nine"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group form-group-float col-md-4">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Monto</label>
+                        <div class="form-control-feedback form-control-feedback-start mb-3">
+                            <input type="text" id="txt_monto" class="form-control cls_t Obl_t" name="monto" placeholder="monto" required>
+                            <div class="form-control-feedback-icon">
+                                <i class="ph-number-circle-nine"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group form-group-float col-md-4">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Cantidad</label>
+                        <div class="form-control-feedback form-control-feedback-start mb-3">
+                            <input type="text" id="txt_cantidad" class="form-control cls_t" name="monto" placeholder="cantidad" required>
+                            <div class="form-control-feedback-icon">
+                                <i class="ph-number-circle-nine"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="form-group form-group-float col-md-4">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Fecha desde</label>
+                        <div class="form-control-feedback form-control-feedback-start mb-3">
+                            <input type="date" id="txt_desde" class="form-control cls_t Obl_t" placeholder="Fecha desde" name="fecha desde" required>
+                            <div class="form-control-feedback-icon">
+                                <i class="ph-calendar"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group form-group-float col-md-4">
+                        <label class="form-group-float-label animate is-visible m-0 p-0 font-weight-semibold">Fecha hasta</label>
+                        <div class="form-control-feedback form-control-feedback-start mb-3">
+                            <input type="date" id="txt_hasta" class="form-control cls_t Obl_t" placeholder="fecha hasta" name="fecha hasta" required>
+                            <div class="form-control-feedback-icon">
+                                <i class="ph-calendar"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div id="divErrores" style="font-weight:bold;color:red"></div>
+                </div>
+
+            </div>
+
+            <div class="modal-footer" style="text-align:right">
+                <button type="button" id="btnCerrar" class="btn btn-light legitRipple float-end" data-bs-dismiss="modal">Cerrar</button>
+                <input type="button" value="Guardar" class="btn btn-primary float-end" onclick="Guarda()" />
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script src="~/scripts/formatorut.js"></script>
+    <script src="~/scripts/HaberesInformados.js"></script>
+}

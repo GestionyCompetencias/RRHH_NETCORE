@@ -1,0 +1,70 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+@*                **************************************       Cambio de clave       **************************************                *@
+
+
+
+<link href="global_assets/css/icons/fontawesome/styles.min.css" rel="stylesheet" type="text/css">
+<script src="global_assets/js/demo_pages/form_floating_labels.js"></script>
+
+<div class="dataTables_wrapper no-footer">
+    <div class="card datatable-scroll-wrap">
+
+        <div class="card-header pb-0 d-flex justify-content-between">
+            <h2>Cambio de clave</h2>
+        </div>
+
+        <div class="card-body">
+            <div class="form-group row">
+                <div class="col-lg-2">
+                    <span>Clave antigua</span>
+                    <input id ="antigua" name="antigua" class="form-control input-borde" type="password" />
+                </div>
+                <div class="col-lg-2">
+                    <span>Clave nueva</span>
+                    <input id="nueva" name="nueva" class="form-control input-borde" type="password" />
+                </div>
+                <div class="col-lg-2">
+                    <span>Repita clave</span>
+                    <input id="verifica" name="verifica" class="form-control input-borde" type="password" />
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary bg-indigo-800 rounded-round btn-sm m-2" onclick="Cambiar()">Cambiar</button>
+        </div>
+    </div>
+</div>
+
+@*// Funciones *@
+<script>
+    function Cambiar() {
+            var antigua = document.getElementById("antigua").value;
+            var nueva = document.getElementById("nueva").value;
+            var verifica = document.getElementById("verifica").value;
+
+      var frm = new FormData();
+     frm.append("antigua", antigua);
+     frm.append("nueva", nueva);
+     frm.append("verifica", verifica);
+
+         $.ajax({
+             type: "POST",
+             url: "CambioClave",
+             data: frm,
+             contentType: false,
+             processData: false,
+
+             success: function (data) {
+                     alert(data.info.mensaje);
+             }
+         });
+    }
+
+</script>
+
+
+
