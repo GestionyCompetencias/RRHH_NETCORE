@@ -48,10 +48,11 @@ namespace RRHH.Servicios.Papeletas
                 string fecfinstr = fecfin.ToString("yyyy'-'MM'-'dd");
 
 
-                f.EjecutarConsultaSQLCli("SELECT resultados.rutTrabajador,resultados.concepto,resultados.monto,resultados.cantidad,resultados.informado " +
-                                            "FROM resultados " +
-                                            "WHERE resultados.habilitado = 1 " + 
-                                            " and resultados.fechaPago <= '"+fecfinstr+"' and resultados.fechaPago >= '"+fecinistr+
+                f.EjecutarConsultaSQLCli("SELECT resultados.rutTrabajador,resultados.concepto,resultados.monto, " +
+                                         " resultados.cantidad,resultados.informado,resultados.descripcion, resultados.pago " +
+                                            " FROM resultados " +
+                                            " WHERE resultados.habilitado = 1 " +
+                                            " and resultados.fechaPago <= '" + fecfinstr + "' and resultados.fechaPago >= '" + fecinistr +
                                             "' and resultados.pago = 'L' ", BD_Cli);
 
 
@@ -67,6 +68,8 @@ namespace RRHH.Servicios.Papeletas
                                         monto = decimal.Parse(dr["monto"].ToString()),
                                         cantidad = decimal.Parse(dr["cantidad"].ToString()),
                                         informado = decimal.Parse(dr["informado"].ToString()),
+                                        descripcion = dr["descripcion"].ToString(),
+                                        pago = dr["pago"].ToString(),
                                     }).ToList();
                     var trabajadores = opcionesList.GroupBy(x=> x.rutTrabajador).Select(g=> new { rutTrabajador = g.Key }).ToList();
                     foreach (var t in trabajadores)
