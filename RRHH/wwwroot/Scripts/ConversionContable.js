@@ -33,7 +33,6 @@ function ListaConversiones(cabeceras, data, divId) {
 
     contenido += "</thead>";
     var info = data.info.data;
-    console.log(info);
     if (data.info.result == 1) {
         if (info.length > 0) {
             var propiedadesObjeto = Object.keys(info[0]);
@@ -53,7 +52,7 @@ function ListaConversiones(cabeceras, data, divId) {
                 }
                 contenido += "<td>";
                 contenido += "<button onclick='abrirModal(" + fila.id + ")' class='btn btn-primary rounded-round btn-sm' ";
-                contenido += "data-toggle='modal' data-target='#modal_Edit'><i class='fa fa-pen'></i></button> ";
+                contenido += "data-toggle='modal' data-target='#modal_Conversion'><i class='fa fa-pen'></i></button> ";
                 contenido += "<button onclick='Eliminar(" + fila.id + ")' class='btn btn-danger rounded-round btn-sm btn'><i class='fa fa-trash-alt'></i></button> ";
                 contenido += "</td>";
                 contenido += "</tr>";
@@ -76,8 +75,9 @@ function ListaConversiones(cabeceras, data, divId) {
 function abrirModal(id) {
     if (id != undefined) {
         document.getElementById("txt_Cabecera").innerHTML = "Editando conversion";
-        $.get("ConsultarConversionContableId/?id=" + id, function (data) {
-            var info = data.data;
+        $.get("ConsultaConversionContableId/?id=" + id, function (data) {
+            var info = data.info.data;
+            console.log(info);
             document.getElementById("txt_id").innerHTML = info.id;
             document.getElementById("cbo_concepto").value = info.concepto;
             document.getElementById("cbo_cuenta").value = info.cuenta;
@@ -180,7 +180,7 @@ function Eliminar(id) {
 
     if (confirm("Confirma que desea eliminar esta información?") == 1) {
 
-        $.get("BorrarConversionContable/?id=" + id, function (data) {
+        $.get("InhabilitaConversionContable/?id=" + id, function (data) {
             alert(data.mensaje)
             limpiar();
             document.getElementById("txt_modulo").value = tipo;

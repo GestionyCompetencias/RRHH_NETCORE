@@ -21,14 +21,13 @@ const formatFechaGuion1 = (fecha) => {
 }
 
 var mes = 1;
-var anio = 2020;
+var anio = 2000;
 var tipo = "L";
 var idEmpre = "";
-
+var ini = "S";
 inicio();
 ComboMes();
 ComboAnio();
-
 function inicio() {
     document.getElementById("esperar").style.display = 'none';
     desde.setDate(hasta.getDate());
@@ -37,14 +36,16 @@ function inicio() {
     mostrarDatos();
 }
 
-
 function mostrarDatos() {
 
     document.getElementById("esperar").style.display = 'block';
     $.get("EmpresaLog", function (data) {
         idEmpre = data;
-            obtenerDatosValidos(idEmpre);
-    })
+        if (ini != "S") {
+           obtenerDatosValidos(idEmpre);
+        }
+        ini = "N";
+   })
 }
 
 function obtenerDatosValidos(idEmpre) {
@@ -65,7 +66,6 @@ function crearListado(cabeceras, data, divId) {
     var z = data.info;
     var contenido = "";
     contenido += "<table id='tabla' class='table nowrap'>";
-    console.log(data);
     //Las cabeceras
     contenido += "<thead>";
     contenido += "<tr>";
@@ -73,39 +73,22 @@ function crearListado(cabeceras, data, divId) {
     for (var i = 0; i < cabeceras.length; i++) {
         contenido += "<td>" + cabeceras[i] + "</td>"
     }
-    contenido += "<td>Operaciones</td>";
     contenido += "</tr>";
-
     contenido += "</thead>";
-    if (data.info.result != 0) {
+    if (data.info.result > 0) {
         var propiedadesObjeto = Object.keys(z.data[0]);
-
         contenido += "<tbody>";
-
         var fila;
         for (var i = 0; i < z.data.length; i++) {
             fila = z.data[i];
             contenido += "<tr>";
-
             for (var j = 0; j < propiedadesObjeto.length; j++) {
-
                 var nombrePropiedad = propiedadesObjeto[j];
-                if (nombrePropiedad == "DEBE" || nombrePropiedad == "HABER") contenido += "<td class='text-right'>" + fila[nombrePropiedad] + "</td>";
-                if (nombrePropiedad == "GLOSA" || nombrePropiedad == "CONCEPTO" || nombrePropiedad == "CUENTA" || nombrePropiedad == "DESCRIPCION")
+                if (nombrePropiedad == "debe" || nombrePropiedad == "haber") contenido += "<td class='text-right'>" + fila[nombrePropiedad] + "</td>";
+                if (nombrePropiedad == "glosa" || nombrePropiedad == "concepto" || nombrePropiedad == "cuenta" || nombrePropiedad == "descripcion")
                     contenido += "<td>" + fila[nombrePropiedad] + "</td>";
-       };
-
-            contenido += "<td style='text-align:right'>";
-
-            contenido += "<button onclick='abrirModal(" + fila.id + ")' class='btn btn-primary rounded-round btn-sm' ";
-            contenido += "data-bs-toggle='modal' data-bs-target='#modal_Descuentosinformados'><i class='fa fa-pen'></i></button> ";
-
-            contenido += "<button onclick='Eliminar(" + fila.id + ")' class='btn btn-danger rounded-round btn-sm btn'><i class='fa fa-trash-alt'></i></button> ";
-
-            contenido += "</td>";
-
+            };
             contenido += "</tr>";
-
         }
         contenido += "</tbody>";
     }
@@ -115,7 +98,7 @@ function crearListado(cabeceras, data, divId) {
 }
 
 
-function procesar() {
+function Procesar() {
     mes = document.getElementById("cbo_mes").value;
     anio = document.getElementById("cbo_anio").value;
     tipo = document.getElementById("txt_tipo").value;

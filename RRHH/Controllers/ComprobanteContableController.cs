@@ -42,9 +42,17 @@ namespace RRHH.Controllers
         {
             string empresastr = HttpContext.Session.GetString("EmpresaLog");
             int empresa = int.Parse(empresastr);
-            Resultado resultado = new Resultado();
             string pago = "L";
-            resultado = _ComprobanteContableService.ListarComprobanteContableService(empresa, mes, anio, pago, tipo);
+            Resultado resultado = new Resultado();
+            resultado.result = 0;
+            resultado.mensaje = "No se ha encontrado información";
+            List<detcomp> detalle = _ComprobanteContableService.ListarComprobanteContableService(empresa, mes, anio, pago, tipo);
+            if(detalle != null)
+            {
+                resultado.result = 1;
+                resultado.mensaje = "Existen registros";
+                resultado.data = detalle;
+            }
             return Json(new { info = resultado });
         }
         [HttpGet]

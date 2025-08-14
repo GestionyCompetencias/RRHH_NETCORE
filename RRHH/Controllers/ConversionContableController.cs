@@ -71,7 +71,7 @@ namespace RRHH.Controllers
             resultado.result = 0;
             string empresastr = HttpContext.Session.GetString("EmpresaLog");
             int empresa = int.Parse(empresastr);
-            List<ConversionContableBaseVM> conversionContable = _conversionContableService.ConsultaConversionContableIdService(id, empresa);
+            ConversionContableBaseVM conversionContable = _conversionContableService.ConsultaConversionContableIdService(id, empresa);
             if (conversionContable != null)
             {
                 resultado.data = conversionContable;
