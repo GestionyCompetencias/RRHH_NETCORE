@@ -152,6 +152,18 @@ namespace RRHH.Servicios
             }
             return dias;
         }
+        public string BuscaCuenta(string cuenta, string BD_Cli)
+        {
+            string descripcion="No existe cuenta";
+            BD_Cli = BD_Cli.Replace("remuneracion", "contable");
+            f.EjecutarConsultaSQLCli("select * from plancuentasdet where habilitado= 1 AND contab= '" + cuenta + "' ", BD_Cli);
+            if (f.Tabla.Rows.Count > 0)
+            {
+                DataRow cta = f.Tabla.Rows[0];
+                descripcion = cta["glosa"].ToString();
+            }
+            return descripcion;
+        }
         public int SindicatoTrabajador(string rut, string fecha, string BD_Cli)
         {
             int sindicato = 0;
@@ -175,6 +187,50 @@ namespace RRHH.Servicios
 ;
             }
             return destinatario;
+        }
+        public string BuscaConcepto(int concepto, string BD_Cli)
+        {
+            string descripcion = null;
+            if(concepto <100)
+            {
+                f.EjecutarConsultaSQLCli("select * from haberes where haber=" + concepto, BD_Cli);
+                if (f.Tabla.Rows.Count > 0)
+                {
+                    DataRow haber = f.Tabla.Rows[0];
+                    descripcion = haber["Descripcion"].ToString();
+                    ;
+                }
+            }
+            else
+            {
+                    f.EjecutarConsultaSQLCli("select * from descuentos where descuento=" + concepto, BD_Cli);
+                    if (f.Tabla.Rows.Count > 0)
+                    {
+                        DataRow dscto = f.Tabla.Rows[0];
+                        descripcion = dscto["Descripcion"].ToString();
+                        ;
+                    }
+                    else
+                    {
+                        if (concepto == 910) descripcion = "LEY.SOC.PENSIÓN";
+                        if (concepto == 921) descripcion = "LEY.SOC. SALUD";
+                        if (concepto == 916) descripcion = "LEY.SOC.CESANTIA";
+                        if (concepto == 990) descripcion = "IMPUESTO UNICO";
+                        if (concepto == 910) descripcion = "LEY.SOC.PENSIÓN";
+                        if (concepto == 910) descripcion = "LEY.SOC.PENSIÓN";
+                        if (concepto == 910) descripcion = "LEY.SOC.PENSIÓN";
+                        if (concepto == 910) descripcion = "LEY.SOC.PENSIÓN";
+                        if (concepto == 999) descripcion = "SALDO LIQUIDO";
+                        if (concepto == 2400) descripcion = "LEY.SOC.CESANTIA EMPRESA";
+                        if (concepto == 2401) descripcion = "LEY.SOC.SEGURO";
+                        if (concepto == 2402) descripcion = "MUTUAL DE SEGURIDAD";
+                        if (concepto == 2404) descripcion = "SEGURO APORTE EMPLEADOR";
+                        if (concepto == 2405) descripcion = "APORTE EMPLEADOR LEY SANNA";
+                        if (concepto == 2421) descripcion = "LEY.SOC. 7 %";
+                        if (concepto == 2212) descripcion = "PAGAR ISAPRE";
+                    }
+            }
+            return descripcion;
         }
         public detempresa BuscaEmpresa(string rut)
 		{

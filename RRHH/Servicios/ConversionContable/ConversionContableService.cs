@@ -26,7 +26,7 @@ namespace RRHH.Servicios.ConversionContable
         /// <param name="id">ID de cuenta especial</param>
         /// <param name="idEmpresa">ID de una empresa.</param>
         /// <returns>Muestra informacion de conversion</returns>
-        public List<ConversionContableBaseVM> ConsultaConversionContableIdService(int id, int idEmpresa);
+        public ConversionContableBaseVM ConsultaConversionContableIdService(int id, int idEmpresa);
         /// <summary>
         /// Creación de conversion.
         /// </summary>
@@ -132,7 +132,7 @@ namespace RRHH.Servicios.ConversionContable
             }
 
         }
-        public List<ConversionContableBaseVM> ConsultaConversionContableIdService(int id, int empresa)
+        public ConversionContableBaseVM ConsultaConversionContableIdService(int id, int empresa)
         {
 
             try
@@ -142,10 +142,10 @@ namespace RRHH.Servicios.ConversionContable
                 var BD_Cli = "remuneracion_" + RutEmpresa;
                 f.EjecutarConsultaSQLCli("SELECT conversionContable.id,conversionContable.modulo,conversionContable.pago,conversionContable.concepto, " +
                                             "conversionContable.cuenta,conversionContable.tipoAuxiliar, conversionContable.codigoAuxiliar, " +
-                                            "conversionContable.debeHaber, conversionContable.tipoVencimiento, conversionContable.diaVencimiento  " +
+                                            "conversionContable.debeHaber, conversionContable.tipoVencimiento, conversionContable.diaVencimiento,  " +
                                             "conversionContable.mesVencimiento, conversionContable.agrupacion, conversionContable.provision  " +
                                            " FROM conversionContable " +
-                                            "WHERE conversionContable.habilitado = 1 ", BD_Cli);
+                                            "WHERE conversionContable.habilitado = 1 and id = "+id, BD_Cli);
 
                 List<ConversionContableBaseVM> opcionesList = new List<ConversionContableBaseVM>();
                 if (f.Tabla.Rows.Count > 0)
@@ -167,7 +167,9 @@ namespace RRHH.Servicios.ConversionContable
                                         agrupacion = int.Parse(dr["agrupacion"].ToString()),
                                         provision = int.Parse(dr["provision"].ToString())
                                     }).ToList();
-                    return opcionesList;
+                    ConversionContableBaseVM registro = new ConversionContableBaseVM();
+                    registro = opcionesList.First();
+                    return registro;
                 }
                 else
                 {
@@ -302,9 +304,7 @@ namespace RRHH.Servicios.ConversionContable
                     resultado.mensaje = "Debe indicar la informacion de la conversion que desea eliminar";
                     return resultado;
                 }
-
-                string query = "update conversionContable set habilitado=0 where id=" + opciones.Id + "  ! ";
-
+                string query = "update conversionContable set habilitado=0 where id=" + opciones.Id ;
                 if (f.EjecutarQuerySQLCli(query, BD_Cli))
                 {
                     resultado.result = 1;
@@ -315,7 +315,6 @@ namespace RRHH.Servicios.ConversionContable
                     resultado.result = 0;
                     resultado.mensaje = "No se eliminó la información de la conversion.";
                 }
-
                 return resultado;
             }
             catch (Exception eG)
