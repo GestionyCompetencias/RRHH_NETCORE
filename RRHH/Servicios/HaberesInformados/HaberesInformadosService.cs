@@ -96,16 +96,27 @@ namespace RRHH.Servicios.HaberesInformados
                 string fecinistr = fecini.ToString("yyyy'-'MM'-'dd");
                 string fecfinstr = fecfin.ToString("yyyy'-'MM'-'dd");
 
-
-                f.EjecutarConsultaSQLCli("SELECT haberesinformados.id,haberesinformados.haber,haberesinformados.rutTrabajador,haberesinformados.correlativo " +
-                                            ",haberesinformados.afecta,haberesinformados.pago, haberesinformados.tipoCalculo, haberesinformados.monto " +
-                                            ",haberesinformados.dias,haberesinformados.fechaDesde, haberesinformados.fechaHasta, haberesinformados.fechaIngreso " +
-                                            ",haberesinformados.pagina " +
-                                            "FROM haberesinformados " +
-                                            "WHERE haberesinformados.habilitado = 1 and haberesinformados.haber =" + haber + 
-                                            " and haberesinformados.fechaDesde <= '"+fecfinstr+"' and haberesinformados.fechaHasta >= '"+fecinistr+
-                                            "' and haberesinformados.pago = '"+pago+"' ", BD_Cli);
-
+                if (haber > 0)
+                {
+                    f.EjecutarConsultaSQLCli("SELECT haberesinformados.id,haberesinformados.haber,haberesinformados.rutTrabajador,haberesinformados.correlativo " +
+                                                ",haberesinformados.afecta,haberesinformados.pago, haberesinformados.tipoCalculo, haberesinformados.monto " +
+                                                ",haberesinformados.dias,haberesinformados.fechaDesde, haberesinformados.fechaHasta, haberesinformados.fechaIngreso " +
+                                                ",haberesinformados.pagina " +
+                                                "FROM haberesinformados " +
+                                                "WHERE haberesinformados.habilitado = 1 and haberesinformados.haber =" + haber +
+                                                " and haberesinformados.fechaDesde <= '" + fecfinstr + "' and haberesinformados.fechaHasta >= '" + fecinistr +
+                                                "' and haberesinformados.pago = '" + pago + "' ", BD_Cli);
+                }
+                else
+                {
+                    f.EjecutarConsultaSQLCli("SELECT haberesinformados.id,haberesinformados.haber,haberesinformados.rutTrabajador,haberesinformados.correlativo " +
+                                                ",haberesinformados.afecta,haberesinformados.pago, haberesinformados.tipoCalculo, haberesinformados.monto " +
+                                                ",haberesinformados.dias,haberesinformados.fechaDesde, haberesinformados.fechaHasta, haberesinformados.fechaIngreso " +
+                                                ",haberesinformados.pagina " +
+                                                "FROM haberesinformados " +
+                                                "WHERE haberesinformados.habilitado = 1  and haberesinformados.fechaDesde <= '" + fecfinstr + 
+                                                "' and haberesinformados.fechaHasta >= '" + fecinistr + "' and haberesinformados.pago = '" + pago + "' ", BD_Cli);
+                }
 
                 List<DetHaberesInformados> opcionesList = new List<DetHaberesInformados>();
                 if (f.Tabla.Rows.Count > 0)
@@ -138,6 +149,8 @@ namespace RRHH.Servicios.HaberesInformados
                         r.fechaHasta = hasta.ToString("dd'-'MM'-'yyyy");
                         PersonasBaseVM pers = Generales.BuscaPersona(r.rutTrabajador, BD_Cli);
                         r.nombre = pers.Nombres + " " + pers.Apellidos;
+                        var reghab = Generales.BuscaHaber(r.haber, BD_Cli);
+                        r.descripcion = reghab.descripcion;
                     }
                 return opcionesList;
                 }
@@ -445,9 +458,10 @@ namespace RRHH.Models.ViewModels
     public class DetHaberesInformados
     {
         public int id { get; set; }
-        public int haber { get; set; }
         public string rutTrabajador { get; set; }
         public string nombre { get; set; }
+        public int haber { get; set; }
+        public string descripcion { get; set; }
         public int correlativo { get; set; }
         public string afecta { get; set; }
         public string pago { get; set; }

@@ -21,7 +21,7 @@ var haberesinformadosModal = ComponentBuilder.setModal("modal_Haberesinformados"
 var codigo = 100;
 var mes = 1;
 var anio = 2020;
-var pago = "L";
+var pago = "";
 var idEmpre = "";
 var fecini = "";
 var fecfin = "";
@@ -44,8 +44,8 @@ function mostrarDatos() {
     document.getElementById("esperar").style.display = 'block';
     $.get("EmpresaLog", function (data) {
         idEmpre = data;
-        codigo = document.getElementById("cbo_haberes").value
-        if (codigo != "") {
+        pago = document.getElementById("cbo_pago").value;
+        if (pago != "") {
             obtenerDatosValidos();
         }
 
@@ -55,9 +55,10 @@ function mostrarDatos() {
 function obtenerDatosValidos() {
     mes = document.getElementById("cbo_mes").value;
     anio = document.getElementById("cbo_anio").value;
-    BuscaFechas();
+    codigo = document.getElementById("cbo_haberes").value
     pago = document.getElementById("cbo_pago").value;
-    if (mes=="") {
+    BuscaFechas();
+   if (mes=="") {
         alert("Debe ingresar mes.");
         return;
     }
@@ -74,7 +75,7 @@ function obtenerDatosValidos() {
         if (data.info.result == 0) {
             alert(data.info.mensaje);
         }
-        crearListado(["Rut", "Nombre", "Afecta", "pago", "Calculo", "Monto","Cantidad", "Desde", "Hasta"], data, "list_haberesinformados");
+        crearListado(["Rut", "Nombre", "Haber", "pago", "Calculo", "Monto", "Desde", "Hasta"], data, "list_haberesinformados");
         document.getElementById("esperar").style.display = 'none';
     })
 
@@ -115,7 +116,7 @@ function crearListado(cabeceras, data, divId) {
                 else if (nombrePropiedad == 'nombre') {
                     contenido += "<td>" + fila[nombrePropiedad] + "</td>";
                 }
-                else if (nombrePropiedad == 'afecta') {
+                else if (nombrePropiedad == 'descripcion') {
                     contenido += "<td>" + fila[nombrePropiedad] + "</td>";
                 }
                 else if (nombrePropiedad == 'pago') {
@@ -125,9 +126,6 @@ function crearListado(cabeceras, data, divId) {
                     contenido += "<td>" + fila[nombrePropiedad] + "</td>";
                 }
                 else if (nombrePropiedad == 'monto') {
-                    contenido += "<td>" + fila[nombrePropiedad] + "</td>";
-                }
-                else if (nombrePropiedad == 'dias') {
                     contenido += "<td>" + fila[nombrePropiedad] + "</td>";
                 }
                 else if (nombrePropiedad == 'fechaDesde') {
@@ -161,7 +159,6 @@ function crearListado(cabeceras, data, divId) {
 
 function abrirModal(id) {
     limpiar();
-    document.getElementById("cbo_haberes").value = codigo;
 
     document.getElementById("divErrores").innerHTML = "";
 
@@ -172,6 +169,7 @@ function abrirModal(id) {
         $.get("ConsultarHaberInformadoId?id=" + id + "&empresa=" + idEmpre, function (data) {
             data = data.info.data;
             document.getElementById("txt_id").innerHTML = data[0].id;
+            document.getElementById("cbo_haberes").value = data[0].haber;
             document.getElementById("cbo_trabajador").value = data[0].rutTrabajador;
             document.getElementById("txt_tipocalculo").value = data[0].tipoCalculo;
             document.getElementById("txt_monto").value = data[0].monto;
@@ -253,6 +251,7 @@ function Guarda() {
 
     var id = document.getElementById("txt_id").innerHTML;
     var rut = formatoRutGuardar(document.getElementById("cbo_trabajador").value);
+    var haber = document.getElementById("cbo_haberes").value;
     var afecta = "T";
     var tipocalculo = document.getElementById("txt_tipocalculo").value;
     var monto = document.getElementById("txt_monto").value;
@@ -265,7 +264,7 @@ function Guarda() {
     var frm = new FormData();
     frm.append("id", id);
     frm.append("rutTrabajador", rut);
-    frm.append("haber", codigo);
+    frm.append("haber", haber);
     frm.append("afecta", afecta);
     frm.append("pago", pago);
     frm.append("tipoCalculo", tipocalculo);

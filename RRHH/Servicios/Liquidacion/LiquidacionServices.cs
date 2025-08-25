@@ -19,17 +19,17 @@ namespace RRHH.Servicios.Liquidacion
         /// <param name="anio">año del haber informados que desea listar</param>
         /// <param name="pago">pago del haber informados que desea listar</param>
         /// <returns>Lista de haberes informados</returns>
-        public Resultado ProcesarLiquidacionService(int idEmpresa, int mes, int anio, string pago);
+        public Resultado ProcesarLiquidacionService(int idEmpresa, int mes, int anio, string pago, string usuario);
 
     }
 
     public class LiquidacionService : ILiquidacionService
     {
         private readonly IDatabaseManager _databaseManager;
-		private Funciones f = new Funciones();
-		private Correos correos = new Correos();
-		private Generales Generales = new Generales();
-		private Seguridad seguridad = new Seguridad();
+        private Funciones f = new Funciones();
+        private Correos correos = new Correos();
+        private Generales Generales = new Generales();
+        private Seguridad seguridad = new Seguridad();
 
         haber[] haberes = new haber[100];
         descuentos[] desctos = new descuentos[1000];
@@ -44,25 +44,32 @@ namespace RRHH.Servicios.Liquidacion
         List<afps> listaafp = new List<afps>();
         string BD_Cli = null;
         DateTime fechainicio, fechatermino;
-        string fechaproceso,fechainiciostr,fechaterminostr;
+        string fechaproceso, fechainiciostr, fechaterminostr;
         public LiquidacionService(IDatabaseManager databaseManager)
         {
 
             _databaseManager = databaseManager;
         }
 
-        public Resultado ProcesarLiquidacionService(int empresa,  int mes,int anio,string pago)
+        public Resultado ProcesarLiquidacionService(int empresa, int mes, int anio, string pago, string usuario)
         {
             string RutEmpresa = f.obtenerRUT(empresa);
             BD_Cli = "remuneracion_" + RutEmpresa;
             Resultado resultado = new Resultado();
             fechainicio = new DateTime(anio, mes, 1);
-            fechatermino= f.UltimoDia(fechainicio);
+            fechatermino = f.UltimoDia(fechainicio);
             fechainiciostr = fechainicio.Date.ToString("yyyy'-'MM'-'dd");
             fechaterminostr = fechatermino.Date.ToString("yyyy'-'MM'-'dd");
             fechaproceso = fechatermino.ToString();
             try
             {
+                if (MesCerrado())
+                {
+                    resultado.result = 0;
+                    resultado.mensaje = "Proceso se encuentra cerrado";
+                    return resultado;
+                }
+                GrabaBitacoraProcesos(usuario, pago);
                 BorraResultados();
                 if (CargaHaberes(empresa) == false)
                 {
@@ -131,7 +138,7 @@ namespace RRHH.Servicios.Liquidacion
                                         tipoCarga = dr["tipoCarga"].ToString(),
                                         articulo22 = dr["articulo22"].ToString()
                                     }).ToList();
-                    
+
                     foreach (var r in trabajadores)
                     {
                         if (InicializaTrabajador())
@@ -159,17 +166,17 @@ namespace RRHH.Servicios.Liquidacion
             catch (System.Exception ex)
             {
                 var Asunto = "Error en proceso de liquidacion";
-        var Mensaje = ex.Message.ToString() + "<br><hr><br>" + ex.StackTrace.ToString();
-        correos.SendEmail(Mensaje, Asunto, "Se generó un error al procesar las remuneraciones", correos.destinatarioErrores);
+                var Mensaje = ex.Message.ToString() + "<br><hr><br>" + ex.StackTrace.ToString();
+                correos.SendEmail(Mensaje, Asunto, "Se generó un error al procesar las remuneraciones", correos.destinatarioErrores);
                 resultado.mensaje = "proceso termina con error";
                 resultado.result = 0;
                 return resultado;
             }
-}
+        }
         public void CargaTiempo(ProcLiquidacion proc)
         {
-            int fallas=0, licencias=0, permisos=0,trabajos=0,inasis=0, diaspagar=0;
-            int ultimodia=0;
+            int fallas = 0, licencias = 0, permisos = 0, trabajos = 0, inasis = 0, diaspagar = 0;
+            int ultimodia = 0;
             tie.fallas = 0;
             tie.licencias = 0;
             tie.pagar = 30;
@@ -202,7 +209,7 @@ namespace RRHH.Servicios.Liquidacion
                                 }).ToList();
                 foreach (var r in opcionesList)
                 {
-                    
+
                     if (r.codigoInasis.Trim() == "AI") fallas += r.dias;
                     if (r.codigoInasis.Trim() == "LM") licencias += r.dias;
                     if (r.codigoInasis.Trim() == "PR") permisos += r.dias;
@@ -212,9 +219,9 @@ namespace RRHH.Servicios.Liquidacion
                     tie.horascolacion += Convert.ToDecimal(r.horasColacion);
                     tie.diascolacion += Convert.ToInt32(r.diasColacion);
                     tie.diasmovilizacion += Convert.ToInt32(r.diasMovilizacion);
-                    if (r.fechaAsistencia  == fechatermino.ToString() && r.codigoInasis.Trim() == "AI") ultimodia = 1;
+                    if (r.fechaAsistencia == fechatermino.ToString() && r.codigoInasis.Trim() == "AI") ultimodia = 1;
                 }
-                if(licencias > 30)licencias = 30;
+                if (licencias > 30) licencias = 30;
                 if (fallas >= 30) fallas = 30;
                 inasis = fallas + licencias;
                 trabajos = 30 - inasis;
@@ -228,7 +235,7 @@ namespace RRHH.Servicios.Liquidacion
                 diaspagar = trabajos;
                 if ((trabajos + inasis) > 30)
                 {
-                    if (ultimodia == 1) diaspagar +=  - 1;
+                    if (ultimodia == 1) diaspagar += -1;
                 }
                 tie.fallas = fallas;
                 tie.licencias = licencias;
@@ -247,7 +254,7 @@ namespace RRHH.Servicios.Liquidacion
                     if (haberes[ind].codigohaber == 1)
                     {
                         Decimal resultado = Sueldo(proc.sueldoBase);
-                        Graba_Resultados(proc.rut, para.pago, 1, haberes[1].descripcion, tie.pagar, proc.sueldoBase, resultado, fechaproceso );
+                        Graba_Resultados(proc.rut, para.pago, 1, haberes[1].descripcion, tie.pagar, proc.sueldoBase, resultado, fechaproceso);
                     }
 
                     //Calculos de Asiganción casa
@@ -279,7 +286,7 @@ namespace RRHH.Servicios.Liquidacion
                     //}
 
                     //Calculo de asignacion colacion
-                    if (haberes[ind].codigohaber == 9 )
+                    if (haberes[ind].codigohaber == 9)
                     {
                         Decimal resuldec = Colacion(para.colacionDia, tie.diascolacion);
                         Graba_Resultados(proc.rut, para.pago, 9, haberes[9].descripcion, tie.diascolacion, para.colacionDia, Convert.ToInt32(resuldec), fechaproceso);
@@ -298,26 +305,26 @@ namespace RRHH.Servicios.Liquidacion
         }
         public void CalculaHaberesInformados(ProcLiquidacion proc)
         {
-                int grainf = 0;
-                f.EjecutarConsultaSQLCli("SELECT haberesinformados.haber,haberesinformados.tipoCalculo, haberesinformados.monto, haberesinformados.dias " +
-                                            "FROM haberesinformados " +
-                                            "WHERE haberesinformados.habilitado = 1 and haberesinformados.rutTrabajador = '"+proc.rut+"' "+
-                                            " and haberesinformados.fechaDesde <= '" + fechaterminostr+ "' and haberesinformados.fechaHasta >= '" + fechainiciostr +
-                                            "' and haberesinformados.pago = '" + para.pago + "' ", BD_Cli);
+            int grainf = 0;
+            f.EjecutarConsultaSQLCli("SELECT haberesinformados.haber,haberesinformados.tipoCalculo, haberesinformados.monto, haberesinformados.dias " +
+                                        "FROM haberesinformados " +
+                                        "WHERE haberesinformados.habilitado = 1 and haberesinformados.rutTrabajador = '" + proc.rut + "' " +
+                                        " and haberesinformados.fechaDesde <= '" + fechaterminostr + "' and haberesinformados.fechaHasta >= '" + fechainiciostr +
+                                        "' and haberesinformados.pago = '" + para.pago + "' ", BD_Cli);
 
 
-                List<DetCuadraturaHaberes> habinformados = new List<DetCuadraturaHaberes>();
-                if (f.Tabla.Rows.Count > 0)
-                {
+            List<DetCuadraturaHaberes> habinformados = new List<DetCuadraturaHaberes>();
+            if (f.Tabla.Rows.Count > 0)
+            {
 
-                    habinformados = (from DataRow dr in f.Tabla.Rows
-                                    select new DetCuadraturaHaberes()
-                                    {
-                                        haber = int.Parse(dr["haber"].ToString()),
-                                        tipoCalculo = dr["tipoCalculo"].ToString(),
-                                        monto = decimal.Parse(dr["monto"].ToString()),
-                                        dias = int.Parse(dr["dias"].ToString()),
-                                    }).ToList();
+                habinformados = (from DataRow dr in f.Tabla.Rows
+                                 select new DetCuadraturaHaberes()
+                                 {
+                                     haber = int.Parse(dr["haber"].ToString()),
+                                     tipoCalculo = dr["tipoCalculo"].ToString(),
+                                     monto = decimal.Parse(dr["monto"].ToString()),
+                                     dias = int.Parse(dr["dias"].ToString()),
+                                 }).ToList();
 
                 foreach (var h in habinformados)
                 {
@@ -328,28 +335,28 @@ namespace RRHH.Servicios.Liquidacion
                     if (h.haber == 7) grainf = 1;
                     Graba_Resultados(proc.rut, para.pago, h.haber, haberes[h.haber].descripcion, dias, valhab, Convert.ToInt32(habinf), fechaproceso);
                 }
-         }
+            }
 
             //Calculo de sobretiempo con recargo de 50 %
             Decimal sobre1 = Sobretiempo(tot.basesobretiempo, tie.horas1, 50, tie.horasmes);
-                Graba_Resultados(proc.rut, para.pago, 3, haberes[3].descripcion, tie.horas1, 50, Convert.ToInt32(sobre1), fechaproceso);
+            Graba_Resultados(proc.rut, para.pago, 3, haberes[3].descripcion, tie.horas1, 50, Convert.ToInt32(sobre1), fechaproceso);
 
 
-                //Calculo de sobretiempo festivos
-                Decimal sobre2 = Sobretiempo(tot.basesobretiempo, tie.horas2, 100, tie.horasmes);
-                Graba_Resultados(proc.rut, para.pago, 4, haberes[4].descripcion, tie.horas2, 100, Convert.ToInt32(sobre2), fechaproceso);
+            //Calculo de sobretiempo festivos
+            Decimal sobre2 = Sobretiempo(tot.basesobretiempo, tie.horas2, 100, tie.horasmes);
+            Graba_Resultados(proc.rut, para.pago, 4, haberes[4].descripcion, tie.horas2, 100, Convert.ToInt32(sobre2), fechaproceso);
 
 
-                //Calculo de sobretiempo festivo especial
-                Decimal sobre3 = Sobretiempo(tot.basesobretiempo, tie.horas3, 300, tie.horasmes);
-                Graba_Resultados(proc.rut, para.pago, 5, haberes[5].descripcion, tie.horas3, 300, Convert.ToInt32(sobre3), fechaproceso);
+            //Calculo de sobretiempo festivo especial
+            Decimal sobre3 = Sobretiempo(tot.basesobretiempo, tie.horas3, 300, tie.horasmes);
+            Graba_Resultados(proc.rut, para.pago, 5, haberes[5].descripcion, tie.horas3, 300, Convert.ToInt32(sobre3), fechaproceso);
 
-                //Calculo de Gratificacion ordinaria
-                if (grainf == 0)
-                {
+            //Calculo de Gratificacion ordinaria
+            if (grainf == 0)
+            {
                 Decimal resuldec = Gratificacion(tot.basevariable, para.porGratificacion, para.mtoTopeGratificacion);
                 Graba_Resultados(proc.rut, para.pago, 6, haberes[6].descripcion, para.porGratificacion, para.mtoTopeGratificacion, Convert.ToInt32(resuldec), fechaproceso);
-                }
+            }
         }
         public void CalculaDescuentos(ProcLiquidacion proc)
         {
@@ -359,7 +366,7 @@ namespace RRHH.Servicios.Liquidacion
             tra.imponibledia = tot.imponible;
             if (tie.licencias > 0)
             {
-                Decimal ultimoimponible = UltimoImponible(proc);    
+                Decimal ultimoimponible = UltimoImponible(proc);
                 tra.imponiblesc = tra.imponiblesc + ultimoimponible * tie.licencias / 30;
                 tra.imponiblelic = tra.imponiblelic + ultimoimponible * tie.licencias / 30;
                 tra.imponibledia = ultimoimponible * (30 - tie.licencias) / 30;
@@ -371,11 +378,11 @@ namespace RRHH.Servicios.Liquidacion
             Procesa_Instituciones(proc);
 
             //CALCULO MUTUAL
-            Mutual(proc,tra.imponible);
+            Mutual(proc, tra.imponible);
 
             //CALCULO DE IMPUESTO
             tot.tributable = tot.tributable - tot.leyessocimp;
-            Impuesto(proc,tot.tributable);
+            Impuesto(proc, tot.tributable);
         }
         //INSTITUCIONES DL TRABAJADO
         void Procesa_Instituciones(ProcLiquidacion proc)
@@ -427,20 +434,20 @@ namespace RRHH.Servicios.Liquidacion
                 val_apv = Convert.ToInt32(proc.apv);
                 if (proc.formaapv == "M")
                 {
-                    Graba_Resultados(proc.rut, para.pago, 120, "AHORRO VOLUNTARIO MONTO", regafp.codigo,proc.apv, Convert.ToInt32(proc.apv), fechaproceso);
+                    Graba_Resultados(proc.rut, para.pago, 120, "AHORRO VOLUNTARIO MONTO", regafp.codigo, proc.apv, Convert.ToInt32(proc.apv), fechaproceso);
 
                 }
                 if (proc.formaapv == "U")
                 {
-                    Graba_Resultados(proc.rut, para.pago, 120, "AHORRO VOLUNTARIO UF", regafp.codigo, proc.apv, Convert.ToInt32(proc.apv*para.valorUf), fechaproceso);
+                    Graba_Resultados(proc.rut, para.pago, 120, "AHORRO VOLUNTARIO UF", regafp.codigo, proc.apv, Convert.ToInt32(proc.apv * para.valorUf), fechaproceso);
                 }
             }
 
 
-                val_isapre = Isapre(tra.imponible, para.cotIsapre, proc.ufs);
-                if(proc.ufs > 0 )Graba_Resultados(proc.rut, para.pago, 921, "LEY.SOC. SALUD", proc.codigoisapre, proc.ufs, Convert.ToInt32(val_isapre), fechaproceso);
-                if(proc.ufs <= 0)Graba_Resultados(proc.rut, para.pago, 921, "LEY.SOC. SALUD", proc.codigoisapre, para.cotIsapre, Convert.ToInt32(val_isapre), fechaproceso);
-                Graba_Resultados(proc.rut, para.pago, 2421, "LEY.SOC. 7 %", proc.codigoisapre,para.cotIsapre, Convert.ToInt32(tra.isapresiete), fechaproceso);
+            val_isapre = Isapre(tra.imponible, para.cotIsapre, proc.ufs);
+            if (proc.ufs > 0) Graba_Resultados(proc.rut, para.pago, 921, "LEY.SOC. SALUD", proc.codigoisapre, proc.ufs, Convert.ToInt32(val_isapre), fechaproceso);
+            if (proc.ufs <= 0) Graba_Resultados(proc.rut, para.pago, 921, "LEY.SOC. SALUD", proc.codigoisapre, para.cotIsapre, Convert.ToInt32(val_isapre), fechaproceso);
+            Graba_Resultados(proc.rut, para.pago, 2421, "LEY.SOC. 7 %", proc.codigoisapre, para.cotIsapre, Convert.ToInt32(tra.isapresiete), fechaproceso);
 
 
             // OTRAS INSTITUCIONES DE AHORRO VOLUNTARIO 
@@ -507,7 +514,7 @@ namespace RRHH.Servicios.Liquidacion
         {
             f.EjecutarConsultaSQLCli("SELECT descuentosinformados.descuento,descuentosinformados.tipoCalculo, descuentosinformados.monto " +
                                         "FROM descuentosinformados " +
-                                        "WHERE descuentosinformados.habilitado = 1 and descuentosinformados.rutTrabajador ='"+proc.rut+"' "+
+                                        "WHERE descuentosinformados.habilitado = 1 and descuentosinformados.rutTrabajador ='" + proc.rut + "' " +
                                         " and descuentosinformados.fechaDesde <= '" + fechaterminostr + "' and descuentosinformados.fechaHasta >= '" + fechainiciostr +
                                         "' and descuentosinformados.pago = '" + para.pago + "' ", BD_Cli);
 
@@ -585,14 +592,14 @@ namespace RRHH.Servicios.Liquidacion
             {
 
                 ultimoimponible = (from DataRow dr in f.Tabla.Rows
-                                 select new ultimo()
-                                 {
-                                     fecha = dr["fechapago"].ToString(),
-                                     monto = decimal.Parse(dr["monto"].ToString()),
-                                 }).ToList();
+                                   select new ultimo()
+                                   {
+                                       fecha = dr["fechapago"].ToString(),
+                                       monto = decimal.Parse(dr["monto"].ToString()),
+                                   }).ToList();
 
-            }            
-            var lista= ultimoimponible.OrderByDescending(x=> x.fecha).ToList();
+            }
+            var lista = ultimoimponible.OrderByDescending(x => x.fecha).ToList();
             var ultimo = lista.FirstOrDefault();
             valor = ultimo.monto;
             return valor;
@@ -617,41 +624,41 @@ namespace RRHH.Servicios.Liquidacion
             {
 
                 lista = (from DataRow dr in f.Tabla.Rows
-                                select new HaberBaseVM()
-                                {
-                                    haber = int.Parse(dr["haber"].ToString()),
-                                    descripcion = dr["Descripcion"].ToString(),
-                                    imponible = dr["imponible"].ToString(),
-                                    tributable = dr["tributable"].ToString(),
-                                    numeromeses = int.Parse(dr["numeroMeses"].ToString()),
-                                    garantizado = dr["garantizado"].ToString(),
-                                    retenible = dr["retenible"].ToString(),
-                                    calculado = dr["calculado"].ToString(),
-                                    tiempo = dr["tiempo"].ToString(),
-                                    deducible = dr["deducible"].ToString(),
-                                    baselicencia = dr["baseLicencia"].ToString(),
-                                    basesobretiempo = dr["baseSobretiempo"].ToString(),
-                                    baseindemnizacion = dr["baseIndemnizacion"].ToString(),
-                                    basevariable = dr["baseVariable"].ToString(),
-                                    codigoDT = dr["CodigoDT"].ToString(),
-                                    codigoprevired = dr["codigoPrevired"].ToString(),
-                                }).ToList();
+                         select new HaberBaseVM()
+                         {
+                             haber = int.Parse(dr["haber"].ToString()),
+                             descripcion = dr["Descripcion"].ToString(),
+                             imponible = dr["imponible"].ToString(),
+                             tributable = dr["tributable"].ToString(),
+                             numeromeses = int.Parse(dr["numeroMeses"].ToString()),
+                             garantizado = dr["garantizado"].ToString(),
+                             retenible = dr["retenible"].ToString(),
+                             calculado = dr["calculado"].ToString(),
+                             tiempo = dr["tiempo"].ToString(),
+                             deducible = dr["deducible"].ToString(),
+                             baselicencia = dr["baseLicencia"].ToString(),
+                             basesobretiempo = dr["baseSobretiempo"].ToString(),
+                             baseindemnizacion = dr["baseIndemnizacion"].ToString(),
+                             basevariable = dr["baseVariable"].ToString(),
+                             codigoDT = dr["CodigoDT"].ToString(),
+                             codigoprevired = dr["codigoPrevired"].ToString(),
+                         }).ToList();
 
                 for (ind = 0; ind < 100; ind++)
                 {
-                haberes[ind].codigohaber = 0;
-                haberes[ind].imponible = "N";
-                haberes[ind].tributable = "N";
-                haberes[ind].numeromeses = 0;
-                haberes[ind].garantizado = "N";
-                haberes[ind].retenible = "N";
-                haberes[ind].calculado = "N";
-                haberes[ind].tiempo = "N";
-                haberes[ind].deducible = "N";
-                haberes[ind].baselicencias = "N";
-                haberes[ind].baseobretiempo = "N";
-                haberes[ind].baseindemnizacion = "N";
-                haberes[ind].basevariable = "N";
+                    haberes[ind].codigohaber = 0;
+                    haberes[ind].imponible = "N";
+                    haberes[ind].tributable = "N";
+                    haberes[ind].numeromeses = 0;
+                    haberes[ind].garantizado = "N";
+                    haberes[ind].retenible = "N";
+                    haberes[ind].calculado = "N";
+                    haberes[ind].tiempo = "N";
+                    haberes[ind].deducible = "N";
+                    haberes[ind].baselicencias = "N";
+                    haberes[ind].baseobretiempo = "N";
+                    haberes[ind].baseindemnizacion = "N";
+                    haberes[ind].basevariable = "N";
 
                 }
                 foreach (var hab in lista)
@@ -663,7 +670,7 @@ namespace RRHH.Servicios.Liquidacion
                         haberes[ind].descripcion = hab.descripcion;
                         haberes[ind].imponible = hab.imponible;
                         haberes[ind].tributable = hab.tributable;
-                        haberes[ind].numeromeses =  hab.numeromeses;
+                        haberes[ind].numeromeses = hab.numeromeses;
                         haberes[ind].garantizado = hab.garantizado;
                         haberes[ind].retenible = hab.retenible;
                         haberes[ind].calculado = hab.calculado;
@@ -696,17 +703,17 @@ namespace RRHH.Servicios.Liquidacion
             {
 
                 lista = (from DataRow dr in f.Tabla.Rows
-                                select new DescuentoBaseVM()
-                                {
-                                    id = int.Parse(dr["id"].ToString()),
-                                    descuento = int.Parse(dr["descuento"].ToString()),
-                                    descripcion = dr["Descripcion"].ToString(),
-                                    prioridad = int.Parse(dr["prioridad"].ToString()),
-                                    minimo = int.Parse(dr["minimo"].ToString()),
-                                    maximo = int.Parse(dr["maximo"].ToString()),
-                                    codigoDT = dr["CodigoDT"].ToString(),
-                                    codigoprevired = dr["codigoPrevired"].ToString(),
-                                }).ToList();
+                         select new DescuentoBaseVM()
+                         {
+                             id = int.Parse(dr["id"].ToString()),
+                             descuento = int.Parse(dr["descuento"].ToString()),
+                             descripcion = dr["Descripcion"].ToString(),
+                             prioridad = int.Parse(dr["prioridad"].ToString()),
+                             minimo = int.Parse(dr["minimo"].ToString()),
+                             maximo = int.Parse(dr["maximo"].ToString()),
+                             codigoDT = dr["CodigoDT"].ToString(),
+                             codigoprevired = dr["codigoPrevired"].ToString(),
+                         }).ToList();
                 List<DetDescuentos> salida = new List<DetDescuentos>();
                 foreach (var d in lista)
                 {
@@ -840,20 +847,20 @@ namespace RRHH.Servicios.Liquidacion
                     para.porGratificacion = Convert.ToDecimal(BuscaValor(lista1, "GENERAL", "3"));
                     para.topGratificacion = Convert.ToDecimal(BuscaValor(lista1, "GENERAL", "4"));
                     para.mutual = Convert.ToDecimal(BuscaValor(lista1, "GENERAL", "5"));
-                    para.mtoTopeGratificacion = RedondeaValor((para.sueldominimo1 * para.topGratificacion / 12),1);
+                    para.mtoTopeGratificacion = RedondeaValor((para.sueldominimo1 * para.topGratificacion / 12), 1);
                     return true;
                 }
             }
             return false;
         }
-        public decimal RedondeaValor( decimal valor, decimal red)
+        public decimal RedondeaValor(decimal valor, decimal red)
         {
             if (valor == 0) return 0;
-            decimal valorVal = valor/red;
-            valorVal = valorVal + 1/2;
+            decimal valorVal = valor / red;
+            valorVal = valorVal + 1 / 2;
             double valorent = Convert.ToInt64(valorVal);
             valorVal = (Decimal)valorent * red;
-        return valorVal;
+            return valorVal;
         }
         public bool CargaAfps(int empresa)
         {
@@ -865,13 +872,13 @@ namespace RRHH.Servicios.Liquidacion
             if (f.Tabla.Rows.Count > 0)
             {
                 listaafp = (from DataRow dr in f.Tabla.Rows
-                         select new afps()
-                         {
-                             codigo= int.Parse(dr["codigo"].ToString()),
-                             descripcion = dr["descripcion"].ToString(),
-                             pension = decimal.Parse(dr["cotizacionPension"].ToString()),
-                             seguro = decimal.Parse(dr["cotizacionSeguro"].ToString())
-                         }).ToList();
+                            select new afps()
+                            {
+                                codigo = int.Parse(dr["codigo"].ToString()),
+                                descripcion = dr["descripcion"].ToString(),
+                                pension = decimal.Parse(dr["cotizacionPension"].ToString()),
+                                seguro = decimal.Parse(dr["cotizacionSeguro"].ToString())
+                            }).ToList();
                 return true;
             }
             return false;
@@ -879,38 +886,38 @@ namespace RRHH.Servicios.Liquidacion
         public string BuscaValor(List<parametros> lista, string tabla, string codigo)
         {
             string valor = "0";
-            valor = lista.Where(x=> x.tabla.Trim()== tabla.Trim() && x.codigo.Trim()==codigo.Trim()).FirstOrDefault().valor;
-            if(valor == null) valor= "0";
+            valor = lista.Where(x => x.tabla.Trim() == tabla.Trim() && x.codigo.Trim() == codigo.Trim()).FirstOrDefault().valor;
+            if (valor == null) valor = "0";
             return valor;
         }
         public bool InicializaTrabajador()
         {
-            tot.imponible=0;
-            tot.imponiblegratificacion =0;
-            tot.noimponible =0;
-            tot.tributable =0;
-            tot.garantizado =0;
-            tot.retenible =0;
-            tot.deducible =0;
-            tot.baselicencias =0;
-            tot.basesobretiempo =0;
-            tot.baseindemnizacion =0;
-            tot.basevariable =0;
-            tot.haberes =0;
-            tot.descuentos =0;
-            tot.otrosdct =0;
-            tot.leyessoc =0;
-            tot.saldo=0;
-            tot.sobregiro =0;
-            tie.fallas =0;
-            tie.licencias =0;
-            tie.horas1 =0;
-            tie.horas2 =0;
-            tie.horas3 =0;
-            tie.horascolacion =0;
-            tie.diascolacion =0;
-            tie.diasmovilizacion =0;
-           return true;
+            tot.imponible = 0;
+            tot.imponiblegratificacion = 0;
+            tot.noimponible = 0;
+            tot.tributable = 0;
+            tot.garantizado = 0;
+            tot.retenible = 0;
+            tot.deducible = 0;
+            tot.baselicencias = 0;
+            tot.basesobretiempo = 0;
+            tot.baseindemnizacion = 0;
+            tot.basevariable = 0;
+            tot.haberes = 0;
+            tot.descuentos = 0;
+            tot.otrosdct = 0;
+            tot.leyessoc = 0;
+            tot.saldo = 0;
+            tot.sobregiro = 0;
+            tie.fallas = 0;
+            tie.licencias = 0;
+            tie.horas1 = 0;
+            tie.horas2 = 0;
+            tie.horas3 = 0;
+            tie.horascolacion = 0;
+            tie.diascolacion = 0;
+            tie.diasmovilizacion = 0;
+            return true;
         }
         Decimal Sueldo(Decimal sbase)
         {
@@ -921,8 +928,8 @@ namespace RRHH.Servicios.Liquidacion
         }
         decimal Sobretiempo(Decimal sbase, decimal horas, decimal reca, Decimal hmes)
         {
-            decimal pagar=0;
-            if(horas > 0)
+            decimal pagar = 0;
+            if (horas > 0)
             {
                 pagar = (sbase * 28 / (hmes * 30)) * horas * (1 + (reca / 100));
             }
@@ -930,8 +937,8 @@ namespace RRHH.Servicios.Liquidacion
         }
         Decimal Movilizacion(decimal valdia, int ndias)
         {
-            decimal pagar=0;
-            if(ndias > 0)
+            decimal pagar = 0;
+            if (ndias > 0)
             {
                 pagar = valdia * ndias;
             }
@@ -939,8 +946,8 @@ namespace RRHH.Servicios.Liquidacion
         }
         Decimal Colacion(decimal valdia, int ndias)
         {
-            decimal pagar=0;
-            if(ndias > 0)
+            decimal pagar = 0;
+            if (ndias > 0)
             {
                 pagar = (int)valdia * ndias;
             }
@@ -948,7 +955,7 @@ namespace RRHH.Servicios.Liquidacion
         }
         Decimal Familiar(Decimal valcarga, Decimal ncargas)
         {
-            Decimal pagar=0;
+            Decimal pagar = 0;
             if (ncargas > 0)
             {
                 pagar = valcarga * ncargas;
@@ -1114,11 +1121,11 @@ namespace RRHH.Servicios.Liquidacion
                     tot.noimponible = tot.noimponible + mto;
                 }
 
-                if (haberes[conce].tributable == "S") { tot.tributable +=  mto; }
-                if (haberes[conce].garantizado == "S") { tot.garantizado +=  mto; }
-                if (haberes[conce].retenible == "S") { tot.retenible +=  mto; }
-                if (haberes[conce].deducible == "S") { tot.deducible +=  mto; }
-                if (haberes[conce].baselicencias == "S") { tot.baselicencias +=  mto; }
+                if (haberes[conce].tributable == "S") { tot.tributable += mto; }
+                if (haberes[conce].garantizado == "S") { tot.garantizado += mto; }
+                if (haberes[conce].retenible == "S") { tot.retenible += mto; }
+                if (haberes[conce].deducible == "S") { tot.deducible += mto; }
+                if (haberes[conce].baselicencias == "S") { tot.baselicencias += mto; }
                 if (haberes[conce].baseobretiempo == "S")
                 {
                     if (conce == 1 || conce == 3)
@@ -1156,11 +1163,11 @@ namespace RRHH.Servicios.Liquidacion
         }
         public void Carga_Apis()
         {
-            para.valorUf= TraeUF(fechatermino);
+            para.valorUf = TraeUF(fechatermino);
             para.valorUtm = TraeUTM(fechatermino);
-            para.mtoTopeAfp = RedondeaValor(para.valorUf * para.topeAfp,1);
-            para.mtoTopeSc = RedondeaValor(para.valorUf * para.topeSc,1);
-            para.mtoTopeIsapre = RedondeaValor(para.mtoTopeAfp * para.cotIsapre / 100,1);
+            para.mtoTopeAfp = RedondeaValor(para.valorUf * para.topeAfp, 1);
+            para.mtoTopeSc = RedondeaValor(para.valorUf * para.topeSc, 1);
+            para.mtoTopeIsapre = RedondeaValor(para.mtoTopeAfp * para.cotIsapre / 100, 1);
             int valent = Convert.ToInt32(para.mtoTopeGratificacion);
             para.mtoTopeGratificacion = valent;
             int ind;
@@ -1203,7 +1210,27 @@ namespace RRHH.Servicios.Liquidacion
         void BorraResultados()
         {
 
-            f.EjecutarConsultaSQLCli("Delete from resultados Where fechaPago >= '"+fechainiciostr+"' and fechaPago <='"+ fechaterminostr+"' and pago= 'L'", BD_Cli);
+            f.EjecutarConsultaSQLCli("Delete from resultados Where fechaPago >= '" + fechainiciostr + "' and fechaPago <='" + fechaterminostr + "' and pago= 'L'", BD_Cli);
+        }
+        void GrabaBitacoraProcesos(string usuario, string pago)
+        {
+            DateTime fecha = Convert.ToDateTime(fechaproceso);
+            string fechastr = fecha.ToString("yyyy'-'MM'-'dd");
+            string query2 = "insert into procesos (estado, idUsuario,pago,fechaProceso,fechaInicio,fechaTermino) " +
+            "values " +
+            "( 1, " + Convert.ToInt32(usuario) + ",'" + pago + "', '" + fechastr + "' ,'" + fechainiciostr + "','" + fechaterminostr +"' ) ";
+            f.EjecutarQuerySQLCli(query2, BD_Cli);
+        }
+        public bool MesCerrado()
+        {
+
+            f.EjecutarConsultaSQLCli("select * from procesos Where fechaProceso >= '" + fechainiciostr + "' and fechaProceso <='" +
+                                      fechaterminostr + "' and pago= 'L' and estado = 9 ", BD_Cli);
+            if (f.Tabla.Rows.Count > 0)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

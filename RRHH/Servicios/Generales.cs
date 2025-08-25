@@ -103,6 +103,46 @@ namespace RRHH.Servicios
             }
             return dias;
         }
+        public HaberBaseVM BuscaHaber(int haberbus, string BD_Cli)
+        {
+            HaberBaseVM haber = new HaberBaseVM();
+            f.EjecutarConsultaSQLCli("select * from haberes where haber=" + haberbus + " ", BD_Cli);
+            if (f.Tabla.Rows.Count > 0)
+            {
+                List<HaberBaseVM> haberes = (from DataRow dr in f.Tabla.Rows
+                                             select new HaberBaseVM
+                                             {
+                                                 id = int.Parse(dr["id"].ToString()),
+                                                 haber = int.Parse(dr["haber"].ToString()),
+                                                 descripcion = dr["descripcion"].ToString(),
+                                                 imponible = dr["imponible"].ToString(),
+                                                 tributable = dr["tributable"].ToString(),
+                                                 codigoprevired = dr["codigoprevired"].ToString(),
+                                                 codigoDT = dr["codigoDT"].ToString()
+                                             }).ToList();
+                if (haberes.Count > 0) haber = haberes.FirstOrDefault();
+            }
+            return haber;
+        }
+        public DescuentoBaseVM BuscaDescuento(int descuentobus, string BD_Cli)
+        {
+            DescuentoBaseVM descuento = new DescuentoBaseVM();
+            f.EjecutarConsultaSQLCli("select * from descuentos where descuento=" + descuentobus + " ", BD_Cli);
+            if (f.Tabla.Rows.Count > 0)
+            {
+                List<DescuentoBaseVM> descuentos = (from DataRow dr in f.Tabla.Rows
+                                             select new DescuentoBaseVM
+                                             {
+                                                 id = int.Parse(dr["id"].ToString()),
+                                                 descuento = int.Parse(dr["descuento"].ToString()),
+                                                 descripcion = dr["descripcion"].ToString(),
+                                                 codigoprevired = dr["codigoprevired"].ToString(),
+                                                 codigoDT = dr["codigoDT"].ToString()
+                                             }).ToList();
+                if (descuentos.Count > 0) descuento = descuentos.FirstOrDefault();
+            }
+            return descuento;
+        }
 
         public UsuarioVM BuscaUsuario(int idusuario)
         {

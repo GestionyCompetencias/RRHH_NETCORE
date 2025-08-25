@@ -41,10 +41,11 @@ namespace RRHH.Controllers
         public async Task<JsonResult> ProcesarLiquidacion(int mes, int anio)
         {
             string empresastr = HttpContext.Session.GetString("EmpresaLog");
+            string UsuarioLogeado = HttpContext.Session.GetString("UserIdLog");
             int empresa = int.Parse(empresastr);
             Resultado resultado = new Resultado();
             string pago = "L";
-            resultado = _LiquidacionService.ProcesarLiquidacionService(empresa, mes, anio, pago);
+            resultado = _LiquidacionService.ProcesarLiquidacionService(empresa, mes, anio, pago,UsuarioLogeado);
             return Json(new { info = resultado });
         }
 
