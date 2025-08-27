@@ -664,11 +664,12 @@ namespace RRHH.Servicios.ComprobanteContable
             int mes = comp.Fcontab.Month;
             int anio = comp.Fcontab.Year;
             int nro = UltimoNumeroComprobante(anio, mes,BD_Cli) + 1;
+            string BD_CliCont = BD_Cli.Replace("remuneracion", "contable");
             string query = "INSERT INTO [dbo].[comprobantes] ([numero], [fcomprob], [fcontab], [tipocomprob], [observ], [habilitado])" +
             " VALUES ('" + nro + "', '" + fechaing + "', '" + fechacon + "',3, '" + comp.Observ + "', 1)";
-            if (f.EjecutarQuerySQLCli(query, BD_Cli))
+            if (f.EjecutarQuerySQLCli(query, BD_CliCont))
             {
-                int idcomprob = UltimoId("[dbo].comprobantes",BD_Cli);
+                int idcomprob = UltimoId("[dbo].comprobantes",BD_CliCont);
                 foreach (var d in comp.Detalles)
                 {
                     double debe = 0;
@@ -677,20 +678,20 @@ namespace RRHH.Servicios.ComprobanteContable
                     else haber = d.Monto;
                     string query1 = "INSERT INTO [dbo].[comprobantesdet] ([idcomprob],[cuenta],[debe],[haber] ,[notas])" +
                         "VALUES (" + idcomprob + ", '" + d.Cuenta + "', " + debe + ", " + haber + ", '" + d.Glosa + "')";
-                    if (f.EjecutarQuerySQLCli(query1, BD_Cli))
+                    if (f.EjecutarQuerySQLCli(query1, BD_CliCont))
                     {
                         FlagsComprobantesVM flags = new FlagsComprobantesVM();
                         flags = d.Flags.FirstOrDefault();
                         string fecemi = flags.fec_emis.ToString("yyyy'-'MM'-'dd");
                         string fecven = flags.fec_venc.ToString("yyyy'-'MM'-'dd");
-                        int idcomprobdet = UltimoId("[dbo].comprobantesdet",BD_Cli);
+                        int idcomprobdet = UltimoId("[dbo].comprobantesdet",BD_CliCont);
                         string query2 = "INSERT INTO[dbo].[comprobantesflag]  ([idcomprobdet], [cod_rut], [auxi_001], [tip_docu], [num_docu], [fec_emis], [fec_venc], [cod_impu]" +
                                 " , [num_cont], [mto_dola], [cod_rcaj], [cod_remu], [tipo_aux], [aux], [cod_presup])" +
                                 "  VALUES ( " + idcomprobdet + ", '" + flags.cod_rut + "', '" + flags.auxi_001 + "', '" + flags.tip_docu + "', '" +
                                 flags.num_docu + "', '" + fecemi + "', '" + fecven + "', '" +
                                 flags.cod_impu + "', '" + flags.num_cont + "', " + flags.mto_dola + ", '" + flags.cod_rcaj +
                                 "', '" + flags.cod_remu + "', " + flags.tipo_aux + ", '" + flags.aux + "', '" + flags.cod_presup + "' )";
-                        if (f.EjecutarQuerySQLCli(query2, BD_Cli))
+                        if (f.EjecutarQuerySQLCli(query2, BD_CliCont))
                         {
                             continue;
                         }
@@ -701,11 +702,10 @@ namespace RRHH.Servicios.ComprobanteContable
             }
             return false;
         }
-        public int UltimoId(string tabla,string BD_Cli)
+        public int UltimoId(string tabla,string BD_CliCont)
         {
             int id = 0;
-            BD_Cli = BD_Cli.Replace("remuneracion","contable");
-            f.EjecutarConsultaSQLCli("Select MAX(id) from " + tabla, BD_Cli);
+            f.EjecutarConsultaSQLCli("Select MAX(id) from " + tabla, BD_CliCont);
             if (f.Tabla.Rows.Count > 0)
             {
                 foreach (DataRow dr in f.Tabla.Rows)
