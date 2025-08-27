@@ -407,6 +407,15 @@ namespace RRHH.Servicios.Liquidacion
             Decimal val_ley = Seg_Aporte(tra.imponibledia, para.leySanna);
             Graba_Resultados(proc.rut, para.pago, 2405, "APORTE EMPLEADOR LEY SANNA", regafp.codigo, para.leySanna, Convert.ToInt32(val_ley), fechaproceso);
 
+            Decimal val_cap = Seg_Aporte(tra.imponibledia, para.AporteCapital);
+            Graba_Resultados(proc.rut, para.pago, 2411, "APORTE EMPLEADOR A CAPITAL INDIVIDUAL", regafp.codigo, para.AporteCapital, Convert.ToInt32(val_cap), fechaproceso);
+
+            Decimal val_exp = Seg_Aporte(tra.imponibledia, para.EspectativaVida);
+            Graba_Resultados(proc.rut, para.pago, 2412, "SEGURO SOCIAL ESPECTATIVA DE VIDA", regafp.codigo, para.EspectativaVida, Convert.ToInt32(val_exp), fechaproceso);
+
+            Decimal val_ren = Seg_Aporte(tra.imponibledia, para.Rentaprotegida);
+            Graba_Resultados(proc.rut, para.pago, 2413, "RENTA PROTEGIDA", regafp.codigo, para.Rentaprotegida, Convert.ToInt32(val_ren), fechaproceso);
+
             if (proc.tipocontrato == 1)
             {
 
@@ -822,6 +831,9 @@ namespace RRHH.Servicios.Liquidacion
                 rebaja[8] = Convert.ToDecimal(BuscaValor(lista, "IMPTO", "28"));
                 para.aporteEmpleador = Convert.ToDecimal(BuscaValor(lista, "AFP", "4000"));
                 para.leySanna = Convert.ToDecimal(BuscaValor(lista, "AFP", "4001"));
+                para.AporteCapital = Convert.ToDecimal(BuscaValor(lista, "AFP", "4011"));
+                para.EspectativaVida = Convert.ToDecimal(BuscaValor(lista, "AFP", "4012"));
+                para.Rentaprotegida = Convert.ToDecimal(BuscaValor(lista, "AFP", "4013"));
                 para.pensionAfp = Convert.ToDecimal(BuscaValor(lista, "AFP", "1000"));
                 Carga_Apis();
                 f.EjecutarConsultaSQLCli("SELECT parametros.tabla,parametros.codigo,parametros.valor, " +
@@ -1154,6 +1166,7 @@ namespace RRHH.Servicios.Liquidacion
                 string mtostr = mto.ToString();
                 mtostr = mtostr.Replace(",", ".");
                 string fecha = fechatermino.ToString("yyyy'-'MM'-'dd");
+                if (descripcion.Length > 30) descripcion = descripcion.Substring(0, 29);
                 string query2 = "insert into resultados (rutTrabajador,pago,concepto,descripcion,cantidad,informado,monto,fechapago,habilitado) " +
                 "values " +
                 "('" + rutt + "','" + pago + "'," + conce + ",'" + descripcion + "','" + nrostr +
@@ -1344,6 +1357,9 @@ public struct parametrosPago
     public decimal afc4;
     public decimal aporteEmpleador;
     public decimal leySanna;
+    public decimal AporteCapital;
+    public decimal EspectativaVida;
+    public decimal Rentaprotegida;
     public int trabajoPesado1;
     public int trabajoPesado2;
     public decimal pensionAfp;
