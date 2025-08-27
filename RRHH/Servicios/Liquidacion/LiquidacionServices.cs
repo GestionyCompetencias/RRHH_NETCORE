@@ -1238,7 +1238,7 @@ namespace RRHH.Servicios.Liquidacion
         {
 
             f.EjecutarConsultaSQLCli("select * from procesos Where fechaProceso >= '" + fechainiciostr + "' and fechaProceso <='" +
-                                      fechaterminostr + "' and pago= 'L' and estado = 9 ", BD_Cli);
+                                      fechaterminostr + "' and pago= 'L' and estado = 'Cerrado' ", BD_Cli);
             if (f.Tabla.Rows.Count > 0)
             {
                 return true;

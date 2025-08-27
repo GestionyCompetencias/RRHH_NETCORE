@@ -103,9 +103,8 @@ function Procesar() {
     anio = document.getElementById("cbo_anio").value;
     tipo = document.getElementById("txt_tipo").value;
     $.get("ProcesarComprobanteContable?mes=" + mes + '&anio=' + anio + '&tipo=' + tipo, function (data) {
-        if (data.info.result == 0) {
+        console.log(data);
             alert(data.info.mensaje);
-        }
         document.getElementById("esperar").style.display = 'none';
     })
 }
