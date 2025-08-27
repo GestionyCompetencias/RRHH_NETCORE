@@ -302,13 +302,13 @@ namespace RRHH.Servicios.ComprobanteContable
                             tothab.GLOSA = oldglo;
                             tothab.RUT = oldrut;
                             ConversionContableBaseVM regconv = new ConversionContableBaseVM();
-                            if (c.concepto <100)
+                            if (oldhab <100)
                             {
-                                regconv = BuscaConversion(modulo, c.concepto, "", "D", BD_Cli);
+                                regconv = BuscaConversion(modulo, oldhab, "", "D", BD_Cli);
                             }
                             else
                             {
-                                regconv = BuscaConversion(modulo, c.concepto, "", "H", BD_Cli);
+                                regconv = BuscaConversion(modulo, oldhab, "", "H", BD_Cli);
                             }
                             if (regconv != null)
                             {
@@ -356,7 +356,7 @@ namespace RRHH.Servicios.ComprobanteContable
                     detcomp tothab1 = new detcomp();
                     tothab1.CONCEPTO = oldhab.ToString();
                     tothab1.GLOSA = oldglo;
-                    if (oldhab < 100)
+                    if (old_concepto < 100)
                     {
                         tothab1.DEBE = totaldeb.ToString();
                         tothab1.HABER = cero.ToString();
@@ -396,8 +396,7 @@ namespace RRHH.Servicios.ComprobanteContable
                 int con = 0;
                 foreach (var d in lista)
                 {
-                    if (d.CONCEPTO == "103")
-                        con = Convert.ToInt32(d.CONCEPTO);
+                    con = Convert.ToInt32(d.CONCEPTO);
                     if (d.GRUPOS == 2)
                     {
                         DetaComprobanteVM detcom = new DetaComprobanteVM();
@@ -503,7 +502,7 @@ namespace RRHH.Servicios.ComprobanteContable
                                 if (oldcnt != 0 && oldcnt != item.concepto)
                                 {
                                     string auxiliar = oldcnt.ToString();
-                                    ConversionContableBaseVM conv = BuscaConversion(modulo, oldhab, auxiliar,"D",BD_Cli);
+                                    ConversionContableBaseVM conv = BuscaConversion(modulo, oldcnt, auxiliar,"D",BD_Cli);
                                     DetaComprobanteVM detcom = new DetaComprobanteVM();
                                     detcom.Cuenta = conv.cuenta;
                                     detcom.Glosa = d.GLOSA;
@@ -574,6 +573,7 @@ namespace RRHH.Servicios.ComprobanteContable
         {
             int numero = 0;
             int proximo = 0;
+            BD_Cli = BD_Cli.Replace("remuneracion", "contable");
             f.EjecutarConsultaSQLCli("Select numero from [dbo].comprobantes " +
                                      "where habilitado = 1 and year(fcontab) =" + anio + " and Month(fcontab) =" + mes, BD_Cli);
             if (f.Tabla.Rows.Count > 0)
@@ -589,6 +589,7 @@ namespace RRHH.Servicios.ComprobanteContable
         }
         public bool ExisteComprobante(string glosa,string BD_Cli)
         {
+            BD_Cli = BD_Cli.Replace("remuneracion", "contable");
             f.EjecutarConsultaSQLCli("Select * from [dbo].comprobantes where habilitado = 1 and CONVERT(NVARCHAR(MAX),observ)= '" + glosa + "' ", BD_Cli);
             if (f.Tabla.Rows.Count > 0) { return true; }
             return false;
